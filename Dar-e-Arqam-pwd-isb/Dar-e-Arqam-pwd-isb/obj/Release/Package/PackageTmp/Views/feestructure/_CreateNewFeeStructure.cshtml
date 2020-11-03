@@ -1,0 +1,26 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model FeeStructure
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Name_of_lvl" > Choose Class Level : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Name_of_lvl) </div>
+</div>
+
+<div class="_forms_label_n_input_normal_div">        
+<div class="_forms_label_div"><label for="Reg_fee" > Registration Fee : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Reg_fee) </div>
+</div>
+
+<div class="_forms_label_n_input_normal_div">    
+<div class="_forms_label_div"><label for="Monthly_fee" > Tuition Fee (Per Month) :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Monthly_fee) </div>
+</div>     
+}
+</div>

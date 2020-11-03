@@ -1,0 +1,54 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model WebAllClass
+
+@{
+    ViewBag.Title = "ViewDiary";
+    Layout = "~/Views/Shared/_WebLayout.cshtml";
+}
+
+<div class="page_title_of_webpages">
+<div class="page_title_of_webpages_inner">
+<div class="title_of_webpages">
+<h2>Diary(@Model.Diary_.Diary_date) For The Section (@Model.GradeSection_.Name) Of Class @Model.GradeSection_.Class_name</h2>
+</div>
+</div>
+</div>
+
+
+<div class="page_contents_handleer_outer">
+    <div class="page_contents_handleer_inner">
+
+    @if (Model.Diary_contxt_s == null)
+    {
+        <p class="page_sub_contents_"> @ViewBag.StatusMessage </p>
+    }
+    else
+    {
+        
+        @*<div class="diary_body">*@
+        foreach (var driv in Model.Diary_contxt_s)
+        {
+
+   if(driv.Type == "eng"){
+            <table class="diary_body" style="width:98%;">
+                <tr>
+                <td class="diary_body_subject"><p>@driv.Subject_name</p></td>
+                <td class="diary_body_contxt"><p>@driv.Contxt </p></td>
+            </tr>
+                </table>
+        }else{
+                <table class="diary_body" style="width:98%;">
+                <tr>
+                <td class="diary_body_contxt"><p class="urdu_">@driv.Contxt </p></td>
+                <td class="diary_body_subject"><p class="urdu">@driv.Subject_name</p></td>
+            </tr>
+                    </table>
+            }
+        }
+        }
+<div class="clear"></div>
+
+    </div>
+
+    </div>
+

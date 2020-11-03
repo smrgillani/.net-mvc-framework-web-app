@@ -1,0 +1,87 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+@{
+    ViewBag.Title = "Syllabuses";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/contents/js/script_5.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+
+<script type="text/javascript">
+      $(document).ready(function () {
+          if ('@TempData["msg"]' != "") {
+              $("#dialog-msg").dialog('open');
+           }
+      });
+</script>
+
+
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Syllabuses</p></div>
+<div class="p_page_head_left"><h2 class="syllabuses">Syllabuses</h2></div>
+<div class="p_page_head_right">
+<div class="p_page_head_right_search">
+@using (Html.BeginForm("Index", "syllabus", FormMethod.Get))
+{
+<div class="p_page_head_right_search_input"> @Html.TextBoxFor(m => m.Search_key, new { placeholder="Type anything to search the required syllabus .... " }) </div>
+<div class="p_page_head_right_search_btn"> <input type="submit" name="submit" value="Search" /> </div>
+<div class="clear"></div>    
+}
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<!--Create-->
+<div id="dialog-add-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With Your Internet Connection , Please Check Your Internet Connetion Settings !
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+
+<div class="p_page_head_bot_links">
+<a href="" id="AddNewSyllabus" class="add_new_item">Add New Syllabus</a>
+<a href="/syllabus/all">All Syllabuses</a>
+<a href="/syllabus/trash">Trash</a>
+<div class="clear"></div>
+</div>
+
+    <h3 class="page_main_headings">Recently Added Syllabuses</h3>
+
+    @if(Model != null) {
+foreach (var driv in Model.Syllabus_s) { 
+@*<!-- Wiget Start--->*@
+    <div class="item_s_main_div">
+        <div class="item_s_main_div_inner">
+        <div class="item_s_main_div_tit"><h3>@driv.Name_of_lvl</h3></div>
+        <div class="item_s_main_div_dtl"><p>@driv.Detail_of_syllabus</p></div>
+        <div class="item_s_main_div_inner_opt">
+        <div class="item_s_main_div_inner_opt_dlt"><a href="">Delete</a></div>
+        <div class="item_s_main_div_inner_opt_edit"><a href="/syllabus/edit/@driv.Id" class="UpdateExistingSyllabus">Edit</a></div>
+        <div class="item_s_main_div_inner_opt_dtl"><a href="/syllabus/view/@driv.Id">View More </a></div>
+        <div class="clear"></div>
+        </div>
+        </div>    
+    </div>
+@*<!-- Wiget End--->*@
+                }
+}
+else {
+   <p class="db_null_msg"> @ViewBag.StatusMessage </p>
+}
+    <div class="clear"></div>
+</div>

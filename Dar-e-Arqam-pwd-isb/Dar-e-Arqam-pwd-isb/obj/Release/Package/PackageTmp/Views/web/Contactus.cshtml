@@ -1,0 +1,162 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model WebAllClass
+@{
+    ViewBag.Title = "Contact Us - Dar-e-Arqam , Pwd Islamaabad";
+    Layout = "~/Views/Shared/_WebLayout.cshtml";
+}
+
+<div class="page_title_of_webpages">
+<div class="page_title_of_webpages_inner">
+<div class="title_of_webpages">
+<h2>Contact Us</h2>
+</div>
+</div>
+</div>
+
+
+<div class="contact_uss__blocks">
+<div class="page_contents_handleer_inner">
+
+<div class="contact_uss_left_block">
+<div class="contact_us_small_blocks_main_h1"><h1>Contact Information</h1></div>
+<div class="contact_contents">
+<p class="cell"> 
+@if(Model == null){
+   @ViewBag.Msg
+}
+else {
+@Model.ContactInfo.Contact_Cell
+}
+</p>
+<p class="phone">
+@if(Model == null){
+   @ViewBag.Msg
+}
+else {
+@Model.ContactInfo.Contact_Phone
+}
+
+</p>
+<p class="email">
+@if(Model == null){
+   @ViewBag.Msg
+}
+else {
+@Model.ContactInfo.Contact_Email
+}
+</p>
+<p class="website">
+@if(Model == null){
+   @ViewBag.Msg
+}
+else {
+@Model.ContactInfo.Contact_Website 
+}
+</p>
+<p class="address">
+@if(Model == null){
+   @ViewBag.Msg
+}
+else {
+@Model.ContactInfo.Contact_Address 
+}
+</p>
+<p class="location">Map Location</p>
+    <div class="contact_map_location">
+@if(Model == null){
+   @ViewBag.Msg
+}
+else {
+@Model.ContactInfo.Contact_Location
+}
+    </div>
+</div>
+</div>
+
+
+
+<div class="contact_uss_right_block">
+<div class="contact_us_small_blocks_main_h2"><h1>Contact Form</h1></div>
+<div class="contact_contents">
+
+    @using(Html.BeginForm())
+    {
+
+        <div class="cntct_page__label"><label for="ContactMsg_Name">Name : </label></div>
+        <div class="cntct_page__input">@Html.TextBoxFor(c => c.ContactMsg.Name)</div>
+        
+        <div class="clear"></div>
+
+        <div class="cntct_page__label"><label for="ContactMsg_Email">Email : </label></div>
+        <div class="cntct_page__input"> @Html.TextBoxFor(c => c.ContactMsg.Email) </div>
+        
+        <div class="clear"></div>
+
+        <div class="cntct_page__label"><label for="ContactMsg_Phone">Phone :</label></div>
+        <div class="cntct_page__input"> @Html.TextBoxFor(c => c.ContactMsg.Phone) </div>
+
+        <div class="clear"></div>
+        
+        <div class="cntct_page__label"><label for="ContactMsg_Title">Title : </label></div>
+        <div class="cntct_page__input"> @Html.TextBoxFor(c => c.ContactMsg.Title) </div>
+
+        <div class="clear"></div>
+        
+        <div class="cntct_page__label"><label for="ContactMsg_Msg">Message</label></div>
+        <div class="cntct_page__input"> @Html.TextAreaFor(c => c.ContactMsg.Msg) </div> 
+        
+        <div class="clear"></div>
+        
+        
+        <input class="main_page_login_area_submit_btn" style="margin-right:10%;" type="submit" name="submit" value="Login" />
+        
+        <div class="clear"></div>
+
+        <br />
+
+    }
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="clear"></div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

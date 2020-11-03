@@ -1,0 +1,52 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model WebAllClass
+
+@{
+    ViewBag.Title = "Select A Section";
+    Layout = "~/Views/Shared/_WebLayout.cshtml";
+}
+
+
+<div class="page_title_of_webpages">
+<div class="page_title_of_webpages_inner">
+<div class="title_of_webpages">
+<h2>Select A Section Of Class @Model.ClassLevel_.Name For Diary(@Model.Diary_.Diary_date)</h2>
+</div>
+</div>
+</div>
+
+
+<div class="page_contents_handleer_outer">
+    <div class="page_contents_handleer_inner">
+
+    @if (Model.GradeSection_s == null)
+    {
+        <p class="page_sub_contents_"> @ViewBag.StatusMessage </p>
+    }
+    else
+    {
+        
+        @*<div class="diary_body">*@
+        foreach (var driv in Model.GradeSection_s)
+        {
+
+    <div class="blocks_of_sub_pages_contents_">
+        <a href="/web/viewdiarycntxt/?sid=@driv.Id&did=@Model.Diary_.Id">
+        <div class="blocks_of_sub_pages_contents_icon_">
+            <img src="~/web_contents/images/section.png" />
+        </div>
+
+        <div class="blocks_of_sub_pages_contents_heading_">
+            <h2>@driv.Name</h2>
+        </div>
+            </a>
+    </div>
+        }
+        }
+<div class="clear"></div>
+
+    </div>
+
+    </div>
+
+

@@ -1,0 +1,58 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model WebAllClass
+@{
+    ViewBag.Title = "News - Dar-e-Arqam , Pwd Islamaabad ";
+    Layout = "~/Views/Shared/_WebLayout.cshtml";
+}
+
+<div class="page_title_of_webpages">
+<div class="page_title_of_webpages_inner">
+<div class="title_of_webpages">
+<h2>News And Updates</h2>
+</div>
+</div>
+</div>
+
+
+<div class="page_contents_handleer_outer">
+<div class="page_contents_handleer_inner">
+    
+    @if (Model == null || @TempData["Message"] != null)
+    {
+        <div class="body_for_txt_items_"><p style="font-family:helvetica; text-align:center;">@TempData["Message"]</p></div>
+    }else{
+
+        foreach(var drive in Model.NewsAndUpdts_s){
+    <div class="body_for_txt_items_">
+    <div class="title_for_txt_items_">
+    <h3>@drive.Name</h3>
+    </div>
+
+    <div class="image_for_txt_items_">
+    <img src="~/News_And_Updates/@drive.Picture" />
+    </div>
+
+    <div class="short_text_for_txt_item_">
+    <div class="short_text_inner_for_txt_item_">
+        <p>
+           @drive.Detail
+        </p>
+
+    </div>
+        <div class="clear"></div>
+        @*<div class="txt_item_forward_link_"><a href="/web/viewnews/@drive.Id">Read More >> </a></div>*@
+    </div>
+
+        <div class="clear"></div>
+        </div>
+        
+    }
+    
+    }
+
+    <div class="clear"></div>
+    </div>
+    </div>
+
+
+<div class="clear"></div>

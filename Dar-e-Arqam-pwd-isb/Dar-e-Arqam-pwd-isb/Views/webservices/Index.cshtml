@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Web Services";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/contents/js/script_16.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ('@TempData["msg"]' != "") {
+              $("#dialog-msg").dialog('open');
+          }
+      });
+</script>
+
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Web Services</p></div>
+<div class="p_page_head_left"><h2 class="web_services">Web Services</h2></div>
+<div class="p_page_head_right"></div>
+<div class="clear"></div>
+</div>
+
+<!--Create-->
+<div id="dialog-add-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With Your Internet Connection , Please Check Your Internet Connetion Settings !
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+
+<div class="p_page_head_bot_links">
+<a href="/webservices/publishallstudentsresult" id="PublishAllStudentsResult" class="add_new_item">Change Students Settings</a>
+<a href="" id="AddNewUniform" class="add_new_item">Change Parents Settings</a>
+<a href="" id="AddNewUniform" class="add_new_item">Change Teachers Settings</a>
+<div class="clear"></div>
+</div>
+
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> All Students Result Status </b> :</p> 
+<p class="page_contents_detail"> @TempData["StatusMsg"] </p>
+</div>
+
+<div class="clear"></div>
+</div>
+
+

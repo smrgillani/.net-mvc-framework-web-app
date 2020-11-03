@@ -1,0 +1,91 @@
+﻿/*Horizontal Orientation CSS*/
+.jscarousal-horizontal
+{
+	width: auto;
+	height: 130px;
+	margin: 0;
+	padding: 0;
+	padding: 22px 8px 22px 8px;
+	position: relative; /*overflow: hidden;*/
+}
+.jscarousal-horizontal-back, .jscarousal-horizontal-forward
+{
+	float: left;
+	width: 23px;
+	height: 98px;
+	color: White;
+	position: relative;
+	top: 6px;
+	cursor: pointer;
+}
+.jscarousal-horizontal-back
+{
+	background-image: url(../images/left_arrow.png);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+.jscarousal-horizontal-forward
+{
+	float:right;
+	background-image: url(../images/right_arrow.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+.jscarousal-contents-horizontal
+{
+	width:95%;
+	height: 130px;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+.jscarousal-contents-horizontal > div
+{
+	position: absolute;
+	width: 100%;
+	height: 130px;
+}
+.jscarousal-contents-horizontal > div > div
+{
+	float: left;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+.jscarousal-contents-horizontal > div > div > a
+{
+	text-decoration:none;
+	color:#000;
+}
+.jscarousal-contents-horizontal > div > div > a:hover
+{
+	text-decoration:underline;
+	color:#432B83;
+}
+.jscarousal-contents-horizontal img
+{
+	width: 120px;
+	height: 100px;
+}
+/*Horizontal Orientation CSS Ends*/
+
+/*Common*/
+#demo-wrapper
+{
+	margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+#demo-right
+{
+	width: auto;
+}
+.thumbnail-text
+{
+	font-size:14px;
+	font-family:Verdana;
+	font-weight:bold;
+	text-align:center;
+	display:block;
+	padding:10px 2px 2px 0px;
+}

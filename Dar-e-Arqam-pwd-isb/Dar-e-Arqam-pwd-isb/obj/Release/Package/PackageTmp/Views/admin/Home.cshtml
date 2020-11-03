@@ -1,0 +1,200 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Dashboard</p></div>
+<div class="p_page_head_left" style="width:35%;"><h2 class="dash_board">Dashboard</h2></div>
+<div class="p_page_head_right" style="width:65%;">
+<h2 class="admin_portal_welcome_note">Welcome To The DaS Pwd Isbd Web Portal</h2>
+</div>
+<div class="clear"></div>
+</div>
+
+<!--Create-->
+<div id="dialog-add-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With Your Internet Connection , Please Check Your Internet Connetion Settings !
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+    
+    <div class="home_block_contents home_block_contents_tchrs">
+        <a href="">
+            <h2>Teachers</h2>
+            <p>Total Teachers : </p>
+            <p>Total Class Levels Of Teachers : </p>
+            <p>Total Subjects Of Teachers : </p>
+        </a>
+    </div>
+    
+    <div class="home_block_contents home_block_contents_stdnt">
+        <a href="">
+            <h2>Students</h2>
+            <p>Total Active Students : </p>
+            <p>Total In-active Students : </p>
+            <p>Total Alumni Students : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_news_n_updt">
+        <a href="">
+            <h2>News and Updates</h2>
+            <p>Total News and Updates : </p>
+            <p>Total Active News and Updates : </p>
+            <p>Total Inactive News and Updates : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_evnts">
+        <a href="">
+            <h2>Events</h2>
+            <p>Total Events : </p>
+            <p>Total Active Events : </p>
+            <p>Total Inactive Events : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_clses">
+        <a href="">
+            <h2>Class Levels</h2>
+            <p>Total Class Levels : </p>
+            <p>Total Students Of Class Levels : </p>
+            <p>Total Subjects Of Class Levels : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_sbjcts">
+        <a href="">
+            <h2>Subjects</h2>
+            <p>Total Subjects : </p>
+            <p>Total Class Levels Of Subjects : </p>
+            <p>Total Books Of Subjects : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_books">
+        <a href="">
+            <h2>Books</h2>
+            <p>Total Books : </p>
+            <p>Total Subjects Of Books : </p>
+            <p>Total Class Levels Of Books : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_diary">
+        <a href="">
+            <h2>Diaries</h2>
+            <p>Total Diaries : </p>
+            <p>Total Active Diaries : </p>
+            <p>Total In-active Diaries : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_sylbses">
+        <a href="">
+            <h2>Syllabuses</h2>
+            <p>Total Syllabuses : </p>
+            <p>Total Subjects Of Syllabuses : </p>
+            <p>Total Class Levels Of Syllabuses : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_unfrm">
+        <a href="">
+            <h2>Uniforms</h2>
+            <p>Total Uniforms : </p>
+            <p>Total Active Uniforms : </p>
+            <p>Total Inactive Uniforms : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_rslt">
+        <a href="">
+            <h2>Results</h2>
+            <p>Total Session Results : </p>
+            <p>Total Active Sub Results : </p>
+            <p>Total Inactive Sub Results : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_shng_strs">
+        <a href="">
+            <h2>Shining Stars </h2>
+            <p>Total Shining Stars : </p>
+            <p>Total Active Shining Stars : </p>
+            <p>Total Inactive Shining Stars : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_achmnts">
+        <a href="">
+            <h2>Achievements </h2>
+            <p>Total Achievements : </p>
+            <p>Total Active Achievements : </p>
+            <p>Total Inactive Achievements : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_fee_strctr">
+        <a href="">
+            <h2>Fee Structures </h2>
+            <p>Total Fee Structures : </p>
+            <p>Total Active Fee Structures : </p>
+            <p>Total Inactive Fee Structures : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_strg">
+        <a href="">
+            <h2>Storage </h2>
+            <p>Total Storage Contents : </p>
+            <p>Total Active Storage Contents : </p>
+            <p>Total Inactive Storage Contents : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_mngmnt">
+        <a href="">
+            <h2>Management </h2>
+            <p>Total Management Staff : </p>
+            <p>Total Active Management Staff : </p>
+            <p>Total Inactive Management Staff : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_web_srvcs">
+        <a href="">
+            <h2>Web Services </h2>
+            <p>Total Web Services : </p>
+            <p>Total Active Web Services: </p>
+            <p>Total Inactive Web Services : </p>
+        </a>
+    </div>
+
+    <div class="home_block_contents home_block_contents_cntct_info">
+        <a href="">
+            <h2>Contact Info </h2>
+            <p>Total Contact Informations : </p>
+            <p>Total Active Contact Informations : </p>
+            <p>Total Inactive Contact Informations : </p>
+        </a>
+    </div>
+
+</div>

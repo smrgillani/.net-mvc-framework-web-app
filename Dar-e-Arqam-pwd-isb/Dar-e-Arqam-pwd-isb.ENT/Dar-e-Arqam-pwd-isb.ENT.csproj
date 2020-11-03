@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FB59304-66B8-4ED6-9CB0-82F215805039}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dar_e_Arqam_pwd_isb.ENT</RootNamespace>
+    <AssemblyName>Dar-e-Arqam-pwd-isb.ENT</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Achvmnts.cs" />
+    <Compile Include="Books.cs" />
+    <Compile Include="ClassesOrSubjectsToTeacher.cs" />
+    <Compile Include="ClassLevels.cs" />
+    <Compile Include="ContactsInfo.cs" />
+    <Compile Include="SubjectsTotalMarks.cs" />
+    <Compile Include="Diaries_Contxts.cs" />
+    <Compile Include="GradesSections.cs" />
+    <Compile Include="Diaries.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="FeeStructures.cs" />
+    <Compile Include="Logins.cs" />
+    <Compile Include="NewsUpdts.cs" />
+    <Compile Include="ResultsPositions.cs" />
+    <Compile Include="Results.cs" />
+    <Compile Include="Stars.cs" />
+    <Compile Include="Students.cs" />
+    <Compile Include="StuffsInStorages.cs" />
+    <Compile Include="SubjectResults.cs" />
+    <Compile Include="Subjects.cs" />
+    <Compile Include="Sub_Results.cs" />
+    <Compile Include="Syllabuses.cs" />
+    <Compile Include="Teachers.cs" />
+    <Compile Include="Uniforms.cs" />
+    <Compile Include="Employees.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,46 @@
+#containerz{
+	width:100%;
+	border:1px solid #432B83;
+}
+#containerz ul{
+	list-style: none;
+	margin:0px;
+	padding:0px;
+	list-style-position: outside;
+}
+.tabs_menu_ul_outer_div{
+	width:auto;
+	height:auto;
+	background:#432B83;
+}
+#containerz ul.menu li{
+	float:left;
+}
+#containerz ul.menu li{
+	display: block;
+	font-size:15px;
+	letter-spacing:1px;
+	font-weight:bold;
+	font-family:Helvetica;
+	padding: 10px 10px 10px 10px;
+	background: #432B83;
+	color:#fff;
+	position: relative;
+	cursor: pointer;
+}
+#containerz ul.menu li.active{
+	background: #fff;
+	top: 1px;
+	color:#432B83;
+}
+.contents{
+	width:100%;
+	background-color:#fff;
+	padding-top:10px;
+}
+.contents.news{
+	display: block;
+}
+.contents.upcoming_events{
+	display: none;
+}

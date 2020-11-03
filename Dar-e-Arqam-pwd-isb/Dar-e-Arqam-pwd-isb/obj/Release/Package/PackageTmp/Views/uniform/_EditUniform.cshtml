@@ -1,0 +1,26 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model Uniform
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm("Edit", "uniform", FormMethod.Post, new { enctype = "multipart/form-data", id = "_forms" }))
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Name" > Name or Title : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Name) </div>
+</div>
+    
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Class_lvl_id" > Uniform For Class Levels : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Class_lvl_id) </div>
+</div>    
+
+<div class="_forms_label_n_input_normal_div">    
+<div class="_forms_label_div"><label for="Picture" > Picture Of The Uniform :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Picture, new { type="file" }) </div>
+</div>     
+}
+</div>

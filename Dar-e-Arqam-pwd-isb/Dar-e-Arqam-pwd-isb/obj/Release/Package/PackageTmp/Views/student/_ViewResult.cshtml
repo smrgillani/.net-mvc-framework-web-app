@@ -1,0 +1,99 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+
+
+<div class="page_contents_info_boxes_nrml" style="margin:0;padding:0;">
+<p class="page_contents_detail_h" style="margin-bottom:0;"> <b> Result Name </b> : @Model.Sub_Result.name </p>
+ 
+<div class="result_s_contents_divs">
+    <b>Subjects</b>
+</div>
+
+<div class="result_s_contents_divs">
+    <b>Subject Total Marks</b>
+</div>
+
+<div class="result_s_contents_divs">
+    <b>Subject Obtain Marks</b>
+</div>
+
+<div class="result_s_contents_divs">
+    <b>Subjects Result Status </b>
+</div> 
+    
+<div class="result_s_contents_divs" style="border-right:none;">
+    <b>Subjects Settings</b>
+</div>     
+   
+    @foreach(var driv in Model.SubjectResult_s){
+     
+        <div class="result_s_contents_divs">
+        <b>@driv.Subject_name</b>
+        </div>
+        <div class="result_s_contents_divs">
+           <p> @driv.Total_marks </p>
+        </div>
+        
+        <div class="result_s_contents_divs">
+           <p> @driv.Obtn_marks </p>
+        </div>
+        
+        <div class="result_s_contents_divs">
+           <p> @if (driv.Status == 0)
+               {
+                 @TempData["Pass"] 
+               }else {
+                 @TempData["Fail"]
+               }
+           </p>
+        </div>
+     
+        
+        <div class="result_s_contents_divs" style="border-right:none;">
+            <p>!</p>
+          @* <p class="page_contents_detail"><a href="/student/delsubresult/?id=@driv.Id&sid=@driv.Student_id" style="color:#f00; outline:none;">Delete</a></p>*@
+        </div>        
+    }
+
+<div class="result_s_contents_divs">
+<b>Total Subject = 
+
+@Model.SubjectResult_s.Count()
+
+</b>
+</div>
+
+<div class="result_s_contents_divs">
+    <b>Total Marks = @Model.SubjectResult_s.Sum(a => a.Total_marks)
+    </b> 
+</div>
+
+<div class="result_s_contents_divs">
+    <b>Obtain Marks = @Model.SubjectResult_s.Sum(a => a.Obtn_marks)</b>
+</div>
+    
+<div class="result_s_contents_divs" style=" width:39.9%; text-align:center; border-right:none;">
+    <b>Overall Result Status = 
+
+        @if ((Model.SubjectResult_s.Sum(a => a.Obtn_marks) / Model.SubjectResult_s.Sum(a => a.Total_marks) * 100) > 45.96 && Model.SubjectResult_s.Sum(a => a.Status) < 3)
+        {
+             @TempData["Pass"]
+        }
+        else{
+            @TempData["Fail"]
+        }
+
+
+    </b>
+</div>
+
+    <div style="clear:both;"></div>
+  @* @if (Model.Result_Position == null)
+        {
+        <p style="font-family:helvetica; text-align:center; color:red; font-weight:bold;"> The Student Position By Section Of This Result Not Posted Yet ! </p>
+        }
+        else
+        {
+            <p style="font-family:helvetica; text-align:center;"> This student have taken @Model.Result_Position.Obtn_Pstn position. <span class="page_contents_detail"> <a href="/student/delresultposition/?id=@Model.Result_Position.Id&sid=@Model.Result_Position.Student_id" style="color:#f00; font-size:16px; outline:none;">Delete</a></span> </p>
+        }*@
+</div>

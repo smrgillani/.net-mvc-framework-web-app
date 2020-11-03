@@ -1,0 +1,74 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models;
+@model AllClasses
+@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Students</p></div>
+<div class="p_page_head_left"><h2 class="students">Students</h2></div>
+<div class="p_page_head_right">
+<div class="p_page_head_right_search">
+@using (Html.BeginForm("trash", "student", FormMethod.Get))
+{
+<div class="p_page_head_right_search_input"> @Html.TextBoxFor(m => m.Search_key, new { placeholder="Type anything to search the required student in trash .... " }) </div>
+<div class="p_page_head_right_search_btn"> <input type="submit" name="submit" value="Search" /> </div>
+<div class="clear"></div>    
+}
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p>
+        @TempData["msg"]!
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+
+<div class="p_page_head_bot_links">
+<a href="/student/create" id="AddNewTeacher" class="add_new_item">Add New Student</a>
+<a href="/student/active">All Active Students</a>
+<a href="/student/alumni">Alumni</a>
+<a href="/student/trash">Trash</a>
+<div class="clear"></div>
+</div>
+
+<h3 class="page_main_headings">Trash </h3>
+
+    @if(Model != null) {
+foreach (var driv in Model.Student_s) { 
+
+@*-- Widget Start--*@
+<div class="student_dir_main_div">
+<div class="student_dir_main_div_inner">
+<div class="student_dir_main_div_inner_img"><img src="~/contents/images/profile_pic.jpg" /></div>
+<div class="student_dir_main_div_inner_detail">
+    <div class="student_dir_main_div_inner_detail_hd"><h3>@driv.Aplicnt_name</h3></div>
+    <div class="student_dir_main_div_inner_detail_li"><p><b>Registration No :</b> @driv.Aplicnt_Id </p></div>
+    <div class="student_dir_main_div_inner_detail_li"><p><b>Joinig Date :</b> @driv.Aplicnt_dob </p></div>
+    <div class="student_dir_main_div_inner_detail_li"><p><b>Class Level :</b> @driv.Aplicnt_c_grade </p></div>
+    <div class="student_dir_main_div_inner_detail_li"><p><b>Phone # 1 :</b> @driv.Aplicnt_f_cell </p></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="student_dir_main_div_inner_opt">
+<div class="student_dir_main_div_inner_opt_edit" style="width:192px;"><a href="/student/edit/@driv.db_Id">Restore</a></div>
+<div class="student_dir_main_div_inner_opt_dlt" style="width:192px;"><a href="">Delete Permanently</a></div>
+<div class="clear"></div>
+</div>
+</div>
+
+@*- Widget End--*@
+    } 
+    }else{
+    @ViewBag.StatusMessage
+    }
+    <div class="clear"></div>
+</div>

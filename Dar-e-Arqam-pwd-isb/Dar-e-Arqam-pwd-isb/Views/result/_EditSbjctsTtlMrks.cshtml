@@ -1,0 +1,28 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+
+<p class="form_msgs"> </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+        
+    if (Model.SubjectsTotalMark_s == null)
+    {
+        <p class="db_msg"> @ViewBag.StatusMessage </p>       
+    }else{
+        
+      for (int i = 0; i < Model.SubjectsTotalMark_s.Count; i++ )
+        {    
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="SubjectResult_Total_marks" > @Model.SubjectsTotalMark_s.ToList()[i].Subject_Name Marks : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.SubjectsTotalMark_s.ToList()[i].Total_marks) </div>
+</div>
+    @Html.TextBoxFor(m => m.SubjectsTotalMark_s.ToList()[i].Id, new { style = "display: none;" })
+    @Html.TextBoxFor(m => m.SubjectsTotalMark_s.ToList()[i].R_id, new { style = "display: none;" })
+        }
+}            
+}
+</div>

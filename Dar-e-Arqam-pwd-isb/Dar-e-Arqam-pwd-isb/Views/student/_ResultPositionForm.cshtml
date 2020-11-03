@@ -1,0 +1,38 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+
+<p class="form_msgs"> </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">        
+<div class="_forms_label_div"><label for="ClassLevel" > Select An Exam : </label></div>
+<div class="_forms_select_div">
+    <select name="Result_Position.Sub_r_id" id="Result_Position_Sub_r_id">
+        <option value="0">Select Option ......</option>
+        @if(Model != null){
+        foreach (var driv in Model.Sub_Result_s)
+        {
+            <option value="@driv.id">@driv.name</option>
+        }
+        }else{}
+    </select>
+</div>
+</div>
+    
+        
+<div class="_forms_label_n_input_normal_div">        
+<div class="_forms_label_div"><label for="Result_Position_Class_Section" > Class Section : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Result_Position.Class_Section) </div>
+</div>
+
+    
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Result_Position_Obtn_Pstn" > Obtain Position : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Result_Position.Obtn_Pstn) </div>
+</div>            
+}
+</div>

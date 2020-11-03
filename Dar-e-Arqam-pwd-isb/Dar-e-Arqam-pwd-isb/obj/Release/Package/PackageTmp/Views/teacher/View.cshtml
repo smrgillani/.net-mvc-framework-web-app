@@ -1,0 +1,240 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+
+@{
+    ViewBag.Title = "View Teacher Record";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/contents/js/script.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+
+<script type="text/javascript">
+      $(document).ready(function () {
+          if ('@TempData["msg"]' != "") {
+              $("#dialog-msg").dialog('open');
+          }
+
+          $("#Teachers_tabs").tabs();
+      });
+</script>
+
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Teachers</p></div>
+<div class="p_page_head_left"><h2 class="teachers">Teachers</h2></div>
+<div class="p_page_head_right">
+<div class="p_page_head_right_search">
+@using (Html.BeginForm("active", "Teacher", FormMethod.Get))
+{
+<div class="p_page_head_right_search_input"> @Html.TextBoxFor(m => m.Search_key, new { placeholder="Type anything to search the required active teacher .... " }) </div>
+<div class="p_page_head_right_search_btn"> <input type="submit" name="submit" value="Search" /> </div>
+<div class="clear"></div>    
+}
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<!--Create-->
+<div id="dialog-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With Your Internet Connection , Please Check Your Internet Connetion Settings !
+    </p>
+</div>
+</div>
+<div class="body_right_bot_area">
+
+<div class="p_page_head_bot_links">
+<a href="/teacher/create" id="AddNewTeacher" class="add_new_item">Add New Teacher</a>
+<a href="/teacher/active">All Active Teachers</a>
+<a href="/teacher/old">All Old Teachers</a>
+<a href="/teacher/trash">Trash</a>
+<div class="clear"></div>
+</div>
+
+
+<div id="Teachers_tabs">
+  <ul>
+    <li><a href="#tabs-1">Basic Info</a></li>
+    <li><a href="#tabs-2">Assign Classes Or Subjects</a></li>
+    <li><a href="#tabs-3">Login Details</a></li>
+    <li><a href="#tabs-4">Web Settings</a></li>
+  </ul>
+  <div id="tabs-1">
+<h3 class="page_tabs_main_headings"> Teacher Basic Info</h3>
+ 
+<div class="page_contents_detail_opt">
+<div class="page_contents_detail_opt_dlt"><a href="">Delete</a></div>
+<div class="page_contents_detail_opt_edit"><a href="/teacher/edit/@Model.Teacher_s.Id" class="UpdateExistingTeacher">Edit</a></div>
+<div class="clear"></div>
+</div>       
+
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> ID </b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_Id</p>
+</div>
+
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Name </b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_name</p>
+</div>
+
+<div class="clear"></div>
+
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Date Of Birth </b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_dob</p>
+</div>
+
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> CNIC </b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_cnic</p>
+</div>
+
+<div class="clear"></div>
+
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Gender </b> :</p> 
+
+    @if (Model.Teacher_s.T_gen == "1")
+    {
+       <p class="page_contents_detail"> Male </p>
+    }
+    else if (Model.Teacher_s.T_gen == "2") {
+        <p class="page_contents_detail"> Female </p>
+    }
+</div>
+
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Email </b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_email</p>
+</div>
+
+<div class="clear"></div>
+      
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Contact Number</b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_c_num</p>
+</div>
+      
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Contact Number</b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_a_c_num</p>
+</div>
+
+<div class="clear"></div>
+      
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Type </b> :</p>
+ 
+@if (Model.Teacher_s.T_gen == "1")
+    {
+<p class="page_contents_detail">Qari / Qariyah</p>
+    }
+    else if (Model.Teacher_s.T_gen == "2") {
+<p class="page_contents_detail">Class Teacher</p>        
+    }       
+</div>
+ 
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Designation </b> :</p>
+   
+@if (Model.Teacher_s.T_desig == "1")
+    {
+<p class="page_contents_detail">Principal</p>
+    }
+else if (Model.Teacher_s.T_desig == "2")
+{
+<p class="page_contents_detail">Vice-Principal</p>        
+    }
+    else if (Model.Teacher_s.T_desig == "3")
+{
+<p class="page_contents_detail">Senior</p>        
+}else if (Model.Teacher_s.T_desig == "4")
+{
+<p class="page_contents_detail">Junior</p>        
+    }
+
+</div>
+
+<div class="clear"></div>
+
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Joining Date </b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_jd</p>
+</div>
+      
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Specialize In Subject </b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_spcl_in_sbjct</p>
+</div>
+
+<div class="clear"></div>
+      
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Guardian Name </b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_g_name</p>
+</div>
+      
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Guardian CNIC </b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_g_cnic</p>
+</div>
+
+<div class="clear"></div>
+      
+<div class="page_contents_info_boxes">
+<p class="page_contents_detail_h"> <b> Residential Address </b> :</p> 
+<p class="page_contents_detail">@Model.Teacher_s.T_res_addr</p>
+</div>                                                        
+
+<div class="clear"></div>
+
+</div>
+<div id="tabs-2">
+
+<h3 class="page_tabs_main_headings">Assign Classes Or Subjects</h3>
+@*<div class="p_page_head_bot_links"> 
+<a href="/teacher/asignclssub/@Model.Teacher_s.Id" id="AsgnNewSub" class="add_new_item" style="margin-left:0;">Assign New Subject</a>
+<div class="clear"></div>
+</div>*@
+
+<p>Currently this service is down  , Sorry for inconvenience . </p>
+
+
+
+
+
+
+
+</div>
+<div id="tabs-3">
+
+<h3 class="page_tabs_main_headings">Login Details</h3>
+    
+<p>Currently this service is down  , Sorry for inconvenience . </p>
+
+</div>
+<div id="tabs-4">
+
+<h3 class="page_tabs_main_headings">Web Services Settings</h3>
+
+<p>Currently this service is down  , Sorry for inconvenience . </p>
+
+</div>
+</div>
+
+
+<div class="clear"></div>
+</div>

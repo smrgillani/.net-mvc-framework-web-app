@@ -1,0 +1,81 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model Student
+
+<p class="form_msgs"> Only update required fields. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm())
+{
+<fieldset>
+<legend>Father's Information :</legend>
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="Aplicnt_f_name" > Father Name :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Aplicnt_f_name, new { }) </div>
+</div>
+    
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="Aplicnt_f_ocptn" > Occupation : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Aplicnt_f_ocptn, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">    
+<div class="_forms_label_div"><label for="Aplicnt_f_title" > Title :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Aplicnt_f_title, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">    
+<div class="_forms_label_div"><label for="Aplicnt_f_cell" > Cell Number :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Aplicnt_f_cell, new { }) </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="Aplicnt_f_phone" > Phone (landline) : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Aplicnt_f_phone, new { })
+</div>
+</div>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="Aplicnt_f_email" > Email : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Aplicnt_f_email, new { }) </div>
+</div>
+        
+<div class="_forms_label_n_input_div">    
+<div class="_forms_label_div"><label for="Aplicnt_f_bsns_name" > Name Of Business : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Aplicnt_f_bsns_name, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="Aplicnt_f_bsns_addr" > Business Address : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Aplicnt_f_bsns_addr, new { }) </div>
+</div>
+<div class="clear"></div>
+
+
+</fieldset>
+
+<fieldset>
+<legend>Mother's Information :</legend>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="Aplicnt_m_name" > Mother Name : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Aplicnt_m_name, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="Aplicnt_m_cell" > Cell Number : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Aplicnt_m_cell, new { }) </div>
+</div>
+         
+<div class="_forms_label_n_input_div">   
+<div class="_forms_label_div"><label for="Aplicnt_m_ldln" > Phone (Landline) : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Aplicnt_m_ldln, new { }) </div>
+</div>
+<div class="clear"></div>
+</fieldset>  
+<div class="clear"></div>    
+}
+
+    </div>

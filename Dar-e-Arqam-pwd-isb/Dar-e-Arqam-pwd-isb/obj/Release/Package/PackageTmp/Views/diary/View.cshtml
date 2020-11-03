@@ -1,0 +1,92 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models;
+@model AllClasses
+@{
+    ViewBag.Title = "Diaries";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/contents/js/script_17.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+
+<script type="text/javascript">
+      $(document).ready(function () {
+          if ('@TempData["msg"]' != "") {
+              $("#dialog-msg").dialog('open');
+           }
+      });
+</script>
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Diaries</p></div>
+<div class="p_page_head_left"><h2 class="diaries">Diaries</h2></div>
+<div class="p_page_head_right">
+<div class="p_page_head_right_search">
+@using (Html.BeginForm("Index", "diary", FormMethod.Get))
+{
+<div class="p_page_head_right_search_input"> @Html.TextBoxFor(m => m.Search_key, new { placeholder="Type anything to search the required diary .... " }) </div>
+<div class="p_page_head_right_search_btn"> <input type="submit" name="submit" value="Search" /> </div>
+<div class="clear"></div>    
+}
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<!--Create-->
+<div id="dialog-add-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With Your Internet Connection , Please Check Your Internet Connetion Settings !
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+
+<div class="p_page_head_bot_links">
+<a href="" id="AddNewDiary" class="add_new_item">Add New Diary</a>
+<a href="/diary/active">All Active Diaries </a>
+<a href="/diary/All">All Diaries</a>
+<a href="/diary/trash">Trash</a>
+<div class="clear"></div>
+</div>
+<h3 class="page_main_headings"> Class Level For Diary Of (@Model.Diary.Diary_date) </h3>
+@if(Model.ClassLevel_s == null) {
+   <p class="db_null_msg"> @ViewBag.StatusMessage </p> 
+}else {
+foreach (var driv in Model.ClassLevel_s) {          
+<div class="items_dir_main_div">
+<div class="items_dir_main_div_inner">
+<div class="items_dir_main_div_inner_img"><img src="~/contents/images/class_levels.png" /></div>
+<div class="items_dir_main_div_inner_detail">
+    <div class="items_dir_main_div_inner_detail_hd"><h3>@driv.Name</h3></div>
+    @if(driv.Range == "1"){
+        <div class="items_dir_main_div_inner_detail_li"><p><b>Duration :</b> One Year</p></div>
+    }else if (driv.Range == "2"){
+        <div class="items_dir_main_div_inner_detail_li"><p><b>Duration :</b> One Year</p></div>
+    }
+@*    <div class="items_dir_main_div_inner_detail_li"><p><b>Total Subject :</b> Abc </p></div>
+    <div class="items_dir_main_div_inner_detail_li"><p><b>Total Teachers :</b> Abc  </p></div>
+    <div class="items_dir_main_div_inner_detail_li"><p><b>Total Students :</b> Abc </p></div>*@
+</div>
+<div class="clear"></div>
+</div>
+<div class="items_dir_main_div_inner_opt">
+<div class="items_dir_main_div_inner_opt_dtl"><a href="/diary/viewsection/?cid=@driv.Id&did=@Model.Diary.Id">View Sections</a></div>
+<div class="items_dir_main_div_inner_opt_edit"><a href="/diary/edit/@driv.Id" class="UpdateExistingClassLevel">Edit</a></div>
+<div class="items_dir_main_div_inner_opt_dlt"><a href="/diary/delclasslvl/@driv.Id">Delete</a></div>
+<div class="clear"></div>
+</div>
+</div>
+
+ }
+}
+</div>

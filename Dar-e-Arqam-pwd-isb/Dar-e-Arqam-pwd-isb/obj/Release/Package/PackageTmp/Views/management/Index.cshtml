@@ -1,0 +1,95 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+@{
+    ViewBag.Title = "Employees";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/contents/js/script_13.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ('@TempData["msg"]' != "") {
+              $("#dialog-msg").dialog('open');
+          }
+      });
+</script>
+
+
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Management</p></div>
+<div class="p_page_head_left"><h2 class="managements">Management</h2></div>
+<div class="p_page_head_right">
+<div class="p_page_head_right_search">
+@using (Html.BeginForm("Index", "management", FormMethod.Get))
+{
+<div class="p_page_head_right_search_input"> @Html.TextBoxFor(m => m.Search_key, new { placeholder="Type anything to search the required employee .... " }) </div>
+<div class="p_page_head_right_search_btn"> <input type="submit" name="submit" value="Search" /> </div>
+<div class="clear"></div>    
+}
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<!--Create-->
+<div id="dialog-add-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With Your Internet Connection , Please Check Your Internet Connetion Settings !
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+
+<div class="p_page_head_bot_links">
+<a href="" id="AddNewEmployee" class="add_new_item">Add New Employee</a>
+<a href="/management/all">All Active Employees </a>
+<a href="/management/old">All Old Employees </a>
+<a href="/management/trash">Trash</a>
+<div class="clear"></div>
+</div>
+<h3 class="page_main_headings">Recently Added Employees</h3>
+@if(Model != null) {
+foreach (var driv in Model.Employee_s) { 
+
+         //Widget Start
+<div class="employee_dir_main_div">
+<div class="employee_dir_main_div_inner">
+<div class="employee_dir_main_div_inner_img"><img src="~/contents/images/profile_pic.jpg" /></div>
+<div class="employee_dir_main_div_inner_detail">
+    <div class="employee_dir_main_div_inner_detail_hd"><h3>@driv.E_name </h3></div>
+    <div class="employee_dir_main_div_inner_detail_li"><p><b>Joinig Date :</b> 27-08-2014 </p></div>
+    <div class="employee_dir_main_div_inner_detail_li"><p><b>Email :</b> @driv.E_email </p></div>
+    <div class="employee_dir_main_div_inner_detail_li"><p><b>Phone :</b> @driv.E_c_num </p></div>
+    <div class="employee_dir_main_div_inner_detail_li"><p><b>Designation :</b> @driv.E_desig </p></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="employee_dir_main_div_inner_opt">
+<div class="employee_dir_main_div_inner_opt_dtl"><a href="">View Detail</a></div>
+<div class="employee_dir_main_div_inner_opt_edit"><a href="/management/edit/@driv.Id" class="UpdateExistingEmployee">Edit Basic Info</a></div>
+<div class="employee_dir_main_div_inner_opt_dlt"><a href="">Delete</a></div>
+    <div class="clear"></div>
+</div>
+</div>
+//Widget End
+        
+    }
+}
+else {
+  <p class="db_null_msg">  @ViewBag.StatusMessage </p>
+}
+    <div class="clear"></div>
+</div>

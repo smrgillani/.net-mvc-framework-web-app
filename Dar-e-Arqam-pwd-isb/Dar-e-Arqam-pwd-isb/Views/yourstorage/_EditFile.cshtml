@@ -1,0 +1,21 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model StuffInStorage
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm("edit", "yourstorage", FormMethod.Post, new { enctype = "multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Name" > Name : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Name) </div>
+</div>
+
+<div class="_forms_label_n_input_normal_div">    
+<div class="_forms_label_div"><label for="File" > Choose Document :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.User_File, new { type="file" }) </div>
+</div>     
+}
+</div>

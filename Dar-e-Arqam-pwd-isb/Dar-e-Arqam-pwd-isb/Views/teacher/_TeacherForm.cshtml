@@ -1,0 +1,132 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model Teacher
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<fieldset>
+<legend>Personal Information :</legend>
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="T_Id" > ID :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.T_Id, new { }) </div>
+</div>
+    
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="T_name" > Name : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.T_name, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">    
+<div class="_forms_label_div"><label for="T_dob" > Date Of Birth :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.T_dob, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">    
+<div class="_forms_label_div"><label for="T_cnic" > CNIC :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.T_cnic, new { }) </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="T_gen" > Gender : </label></div>
+<div class="_forms_select_div"> @Html.DropDownListFor(m => m.T_gen ,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Select Gender . .", Value = "0"},
+                    new SelectListItem { Text = "Male", Value = "1"},
+                    new SelectListItem { Text = "Female", Value = "2"}
+                }
+               )
+</div>
+</div>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="T_email" > Email : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.T_email, new { }) </div>
+</div>
+        
+<div class="_forms_label_n_input_div">    
+<div class="_forms_label_div"><label for="T_c_num" > Contact Number : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.T_c_num, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="T_a_c_num" > Alternative Contact Number : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.T_a_c_num, new { }) </div>
+</div>
+<div class="clear"></div>
+
+
+</fieldset>
+
+<fieldset>
+<legend>For School :</legend>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="T_type" > Type : </label></div>
+<div class="_forms_select_div"> @Html.DropDownListFor(m => m.T_type ,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Select Type . . ", Value = "0"},
+                    new SelectListItem { Text = "Qari / Qariyah", Value = "1"},
+                    new SelectListItem { Text = "Class Teacher", Value = "2"}
+                }
+               ) </div>
+</div>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="T_desig" > Designation : </label></div>
+<div class="_forms_select_div"> @Html.DropDownListFor(m => m.T_desig ,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Select Designation . .", Value = "0"},
+                    new SelectListItem { Text = "Principal", Value = "1"},
+                    new SelectListItem { Text = "Vice-Principal", Value = "2"},
+                    new SelectListItem { Text = "Senior", Value = "3"},
+                    new SelectListItem { Text = "Junior", Value = "4"}
+                }
+               ) </div>
+</div>
+
+<div class="_forms_label_n_input_div">    
+<div class="_forms_label_div"><label for="T_dob" > Joinig Date :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.T_jd, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">    
+<div class="_forms_label_div"><label for="T_dob" > Specialize In Subject :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.T_spcl_in_sbjct, new { }) </div>
+</div>
+
+         
+<div class="clear"></div>
+</fieldset>
+
+<fieldset>
+<legend>For Record :</legend>    
+
+<div class="_forms_label_n_input_div">   
+<div class="_forms_label_div"><label for="T_g_name" > Guardian Name : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.T_g_name, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="T_g_cnic" > Guardian CNIC : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.T_g_cnic, new { }) </div>
+</div>
+
+<div class="_forms_label_n_textarea_div">        
+<div class="_forms_label_div"><label for="T_res_addr" > Teacher Residentional Address : </label></div>
+<div class="_forms_textarea_div"> @Html.TextAreaFor(m => m.T_res_addr, new { }) </div>
+</div>
+
+</fieldset>
+<div class="clear"></div>    
+}
+
+    </div>

@@ -1,0 +1,32 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Syllabus_Name_of_lvl" > Name Of The Class Level : </label></div>
+
+<div class="_forms_select_div">
+    <select name="Syllabus.Name_of_lvl" id="Syllabus_Name_of_lvl">
+        <option value="0">Select Option ......</option>
+        @if(Model != null){
+        foreach (var driv in Model.ClassLevel_s)
+        {
+            <option value="@driv.Id">@driv.Name</option>
+        }
+        }else{}
+    </select>
+</div>
+</div>
+
+<div class="_forms_label_n_input_normal_div">        
+<div class="_forms_label_div"><label for="Syllabus_Detail_of_syllabus" > Type Here The Details Of The Syllabus : </label></div>
+<div class="_forms_textarea_div"> @Html.TextAreaFor(m => m.Syllabus.Detail_of_syllabus, new { style="height:200px;" }) </div>
+</div>     
+}
+</div>

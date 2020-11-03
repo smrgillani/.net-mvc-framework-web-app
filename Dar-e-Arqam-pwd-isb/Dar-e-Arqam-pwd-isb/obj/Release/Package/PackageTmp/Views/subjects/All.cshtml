@@ -1,0 +1,88 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models;
+@model AllClasses
+@{
+    ViewBag.Title = "All Subjects";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/contents/js/script_3.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+
+<script type="text/javascript">
+      $(document).ready(function () {
+          if ('@TempData["msg"]' != "") {
+              $("#dialog-msg").dialog('open');
+           }
+      });
+</script>
+
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Subjects</p></div>
+<div class="p_page_head_left"><h2 class="subjects">Subjects</h2></div>
+<div class="p_page_head_right">
+<div class="p_page_head_right_search">
+@using (Html.BeginForm("all", "subjects", FormMethod.Get))
+{
+<div class="p_page_head_right_search_input"> @Html.TextBoxFor(m => m.Search_key, new { placeholder="Type anything to search the required subject .... " }) </div>
+<div class="p_page_head_right_search_btn"> <input type="submit" name="submit" value="Search" /> </div>
+<div class="clear"></div>    
+}
+</div>
+</div>
+<div class="clear"></div>    
+</div>
+
+<!--Create-->
+<div id="dialog-add-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With Your Internet Connection , Please Check Your Internet Connetion Settings !
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+
+<div class="p_page_head_bot_links">
+<a href="" id="AddNewSubject" class="add_new_item">Add New Subject</a>
+<a href="/subjects/all">All Subjects </a>
+<a href="/subjects/trash">Trash</a>
+<div class="clear"></div>
+</div>
+<h3 class="page_main_headings">All Subjects</h3>
+@if(Model == null) {
+    <p class="db_null_msg">@ViewBag.StatusMessage</p>
+}else {
+foreach (var driv in Model.Subject_s) {          
+<div class="items_dir_main_div">
+<div class="items_dir_main_div_inner">
+<div class="items_dir_main_div_inner_img"><img src="~/contents/images/subject_s.png" /></div>
+<div class="items_dir_main_div_inner_detail">
+    <div class="items_dir_main_div_inner_detail_hd"><h3>@driv.Name</h3></div>
+    <div class="items_dir_main_div_inner_detail_li"><p><b>Class Level :</b> @driv.ClassName</p></div>
+    <div class="items_dir_main_div_inner_detail_li"><p><b>Book Of This :</b> </p></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="items_dir_main_div_inner_opt">
+<div class="items_dir_main_div_inner_opt_dtl"><a href="a">View</a></div>
+<div class="items_dir_main_div_inner_opt_edit"><a href="/subjects/edit/@driv.Id" class="UpdateExistingSubject">Edit</a></div>
+<div class="items_dir_main_div_inner_opt_dlt"><a href="a">Delete</a></div>
+<div class="clear"></div>
+</div>
+</div>
+
+ }
+ }
+<br />
+    <div class="clear"></div>
+</div>

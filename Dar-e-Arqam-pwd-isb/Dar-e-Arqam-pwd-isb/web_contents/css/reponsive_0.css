@@ -1,0 +1,54 @@
+#banner .oneByOne_item{
+	position:absolute;
+	width:1024px;
+	height: 440px;
+	overflow:hidden;
+}
+#banner img.img_0{
+	position: absolute;
+	left:1093px;
+	height:440px;
+	width:auto;
+} 
+#banner img.img_1{
+	position: absolute;
+	left:883px;
+	height:440px;
+	width:auto;
+}
+#banner img.img_2{
+	position: absolute;
+	left:661px;
+	height:440px;
+	width:auto;
+}
+#banner img.img_3{
+	position: absolute;
+	left:235px;
+	height:440px;
+	width:auto;
+}
+#banner img.img_4{
+	position: absolute;
+	left:0;
+	height:440px;
+	width:auto;
+}
+#banner .oneByOne_item img.bigImage{ 
+	position: absolute;
+	width:1024px;
+	height:440px;
+	top: 0; 
+	left: 0;
+
+}
+
+.abc{
+	display:block;
+	position:absolute;
+	width:1024px;
+	color:#FFFFFF;
+	height: 440px;
+	background:#000000;
+	overflow:hidden;
+}

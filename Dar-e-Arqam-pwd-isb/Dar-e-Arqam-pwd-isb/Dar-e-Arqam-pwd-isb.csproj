@@ -1,0 +1,726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9D765F9-2B1B-4433-B17B-598A2660B56C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dar_e_Arqam_pwd_isb</RootNamespace>
+    <AssemblyName>Dar-e-Arqam-pwd-isb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\achievementController.cs" />
+    <Compile Include="Controllers\adminController.cs" />
+    <Compile Include="Controllers\bookController.cs" />
+    <Compile Include="Controllers\classlevelController.cs" />
+    <Compile Include="Controllers\contactinfoController.cs" />
+    <Compile Include="Controllers\diaryController.cs" />
+    <Compile Include="Controllers\eventsController.cs" />
+    <Compile Include="Controllers\feestructureController.cs" />
+    <Compile Include="Controllers\managementController.cs" />
+    <Compile Include="Controllers\messageController.cs" />
+    <Compile Include="Controllers\newsandupdatesController.cs" />
+    <Compile Include="Controllers\parentsController.cs" />
+    <Compile Include="Controllers\RedirectController.cs" />
+    <Compile Include="Controllers\resultController.cs" />
+    <Compile Include="Controllers\shiningstarsController.cs" />
+    <Compile Include="Controllers\studentController.cs" />
+    <Compile Include="Controllers\subjectsController.cs" />
+    <Compile Include="Controllers\syllabusController.cs" />
+    <Compile Include="Controllers\teacherController.cs" />
+    <Compile Include="Controllers\uniformController.cs" />
+    <Compile Include="Controllers\webController.cs" />
+    <Compile Include="Controllers\webservicesController.cs" />
+    <Compile Include="Controllers\websettingsController.cs" />
+    <Compile Include="Controllers\yourstorageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Achvmnt.cs" />
+    <Compile Include="Models\SubjectTotalMark.cs" />
+    <Compile Include="Models\AllClasses.cs" />
+    <Compile Include="Models\ClassOrSubjectToTeacher.cs" />
+    <Compile Include="Models\ContactInfo.cs" />
+    <Compile Include="Models\ContactMsg.cs" />
+    <Compile Include="Models\Diary_Contxt.cs" />
+    <Compile Include="Models\GradeSection.cs" />
+    <Compile Include="Models\Diary.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\ResultPosition.cs" />
+    <Compile Include="Models\Search.cs" />
+    <Compile Include="Models\StuffInStorage.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\ClassLevel.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\FeeStructure.cs" />
+    <Compile Include="Models\NewsUpdt.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\Star.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\SubjectResult.cs" />
+    <Compile Include="Models\Sub_Result.cs" />
+    <Compile Include="Models\Syllabus.cs" />
+    <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\Uniform.cs" />
+    <Compile Include="Models\WebAllClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="contents\css\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="contents\css\login.css" />
+    <Content Include="contents\css\structure.css" />
+    <Content Include="contents\css\style.css" />
+    <Content Include="contents\js\dic.js" />
+    <Content Include="contents\js\jquery-1.3.2.min.js" />
+    <Content Include="contents\js\jquery.js" />
+    <Content Include="contents\js\jquery.min.js" />
+    <Content Include="contents\js\keyboard.js" />
+    <Content Include="contents\js\script_19.js" />
+    <Content Include="contents\js\script_18.js" />
+    <Content Include="contents\js\script_17.js" />
+    <Content Include="contents\js\script_16.js" />
+    <Content Include="contents\js\script_15.js" />
+    <Content Include="contents\js\script_14.js" />
+    <Content Include="contents\js\script_13.js" />
+    <Content Include="contents\js\script_12.js" />
+    <Content Include="contents\js\script_11.js" />
+    <Content Include="contents\js\script_10.js" />
+    <Content Include="contents\js\script_9.js" />
+    <Content Include="contents\js\script_8.js" />
+    <Content Include="contents\js\script_7.js" />
+    <Content Include="contents\js\script_6.js" />
+    <Content Include="contents\js\script_5.js" />
+    <Content Include="contents\js\script_4.js" />
+    <Content Include="contents\js\script_3.js" />
+    <Content Include="contents\js\script_2.js" />
+    <Content Include="contents\js\script_1.js" />
+    <Content Include="contents\js\script_0.js" />
+    <Content Include="contents\js\script.js" />
+    <Content Include="contents\js\jquery-1.10.2.js" />
+    <Content Include="contents\js\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="contents\js\OpenPad.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="web_contents\css\animate.css" />
+    <Content Include="web_contents\css\animate_2.css" />
+    <Content Include="web_contents\css\camera.css" />
+    <Content Include="web_contents\css\jquery.fancybox.css" />
+    <Content Include="web_contents\css\jsCarousel-2.0.0.css" />
+    <Content Include="web_contents\css\reponsive_.css" />
+    <Content Include="web_contents\css\reponsive_0.css" />
+    <Content Include="web_contents\css\style.css" />
+    <Content Include="web_contents\css\tabs.css" />
+    <Content Include="web_contents\js\appear.js" />
+    <Content Include="web_contents\js\camera.js" />
+    <Content Include="web_contents\js\custom.js" />
+    <Content Include="web_contents\js\jquery.1.8.2.min.js" />
+    <Content Include="web_contents\js\jquery.easing.min.js" />
+    <Content Include="web_contents\js\jquery.onebyone.min.js" />
+    <Content Include="web_contents\js\jquery.themepunch.showbizpro.min.js" />
+    <Content Include="web_contents\js\respond.matchmedia.addListener.min.js" />
+    <Content Include="web_contents\js\respond.matchmedia.addListener.src.js" />
+    <Content Include="web_contents\js\respond.min.js" />
+    <Content Include="web_contents\js\respond.src.js" />
+    <Content Include="web_contents\js\ss-gizmo.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Achvmnts\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Books\" />
+    <Folder Include="contents\images\" />
+    <Folder Include="Event\" />
+    <Folder Include="News_And_Updates\" />
+    <Folder Include="p_storage\" />
+    <Folder Include="Stars\" />
+    <Folder Include="students\" />
+    <Folder Include="teachers\" />
+    <Folder Include="Uniforms\" />
+    <Folder Include="web_contents\images\" />
+    <Folder Include="web_contents\slides\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\teacher\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\student\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\student\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\newsandupdates\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\newsandupdates\_CreateNewsOrUpdate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\events\_CreateEvent.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\events\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\classlevel\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\classlevel\_CreateClassLevel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\subjects\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\subjects\_CreateNewSubject.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\book\_CreateNewBook.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\book\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\syllabus\_CreateNewSyllabus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\syllabus\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\uniform\_CreateNewUniform.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\result\_CreateNewResult.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\result\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\shiningstars\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\shiningstars\_CreateNewShiningStar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\feestructure\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\feestructure\_CreateNewFeeStructure.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\yourstorage\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\achievement\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\achievement\_CreateNewAchievement.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\parents\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dar-e-Arqam-pwd-isb.APP\Dar-e-Arqam-pwd-isb.APP.csproj">
+      <Project>{3a77544c-f581-49d5-9911-f1c9f4cd3379}</Project>
+      <Name>Dar-e-Arqam-pwd-isb.APP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dar-e-Arqam-pwd-isb.ENT\Dar-e-Arqam-pwd-isb.ENT.csproj">
+      <Project>{1fb59304-66b8-4ed6-9cb0-82f215805039}</Project>
+      <Name>Dar-e-Arqam-pwd-isb.ENT</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\management\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\teacher\_TeacherForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\uniform\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\webservices\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactinfo\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\student\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\parents\_EditParent.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\newsandupdates\_EditNewsOrUpdate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\events\_EditEvent.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\book\_EditBook.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\uniform\_EditUniform.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\shiningstars\_EditShiningStar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\achievement\_EditAchvmnt.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\yourstorage\_EditFile.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\yourstorage\_AddNewFile.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\management\_EmployeeForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactinfo\_ContactForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\teacher\Active.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\teacher\Old.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\teacher\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\student\Active.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\student\Alumni.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\student\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\parents\Active.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\parents\Old.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\parents\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\newsandupdates\Active.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\newsandupdates\Old.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\newsandupdates\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\events\Active.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\events\Gallery.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\events\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\classlevel\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\classlevel\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\subjects\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\subjects\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\book\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\book\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\syllabus\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\syllabus\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\uniform\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\uniform\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\result\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\result\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\shiningstars\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\shiningstars\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\achievement\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\achievement\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\feestructure\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\feestructure\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\yourstorage\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\yourstorage\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\management\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\management\Old.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\management\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactinfo\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactinfo\Active.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactinfo\Trash.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\teacher\_AsgnClsSubForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\teacher\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\student\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\parents\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\newsandupdates\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\newsandupdates\_Publish.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\events\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\events\_Publish.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\syllabus\_Publish.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\syllabus\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\shiningstars\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\shiningstars\_Publish.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\achievement\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\achievement\_Publish.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\feestructure\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactinfo\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactinfo\_Publish.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\student\_Publish.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\result\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\result\_SubResultsForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\student\_SubjectResultForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\student\_ViewResult.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\websettings\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\webservices\_PublishAllStudentsResult.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\admin\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_WebLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Contactus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Overview.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Messages.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Management.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Faqs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Aboutus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Admission.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Academic.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Achievements.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Results.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\ViewResult.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\ViewAchvmnt.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\News.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web\Exploreus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\result\_PublishSubResult.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Syed Musa Raza Gillani.pubxml" />
+    <Content Include="Views\classlevel\View.cshtml" />
+    <Content Include="Views\result\ViewSub.cshtml" />
+    <Content Include="Views\Redirect\Index.cshtml" />
+    <Content Include="Views\student\_ResultPositionForm.cshtml" />
+    <Content Include="Views\subjects\_EditSubject.cshtml" />
+    <Content Include="Views\web\Message.cshtml" />
+    <Content Include="Views\web\Uniforms.cshtml" />
+    <Content Include="Views\uniform\View.cshtml" />
+    <Content Include="Views\uniform\_Publish.cshtml" />
+    <Content Include="Views\book\_Publish.cshtml" />
+    <Content Include="Views\book\View.cshtml" />
+    <Content Include="Views\book\Active.cshtml" />
+    <Content Include="Views\diary\Index.cshtml" />
+    <Content Include="Views\diary\_Create.cshtml" />
+    <Content Include="Views\diary\_Edit.cshtml" />
+    <Content Include="Views\diary\View.cshtml" />
+    <Content Include="Views\classlevel\ViewSection.cshtml" />
+    <Content Include="Views\classlevel\_CreateSection.cshtml" />
+    <Content Include="Views\diary\ViewSection.cshtml" />
+    <Content Include="Views\diary\ViewDiary.cshtml" />
+    <Content Include="Views\diary\_CreateSubjectDiaryUrdu.cshtml" />
+    <Content Include="Views\diary\_CreateSubjectDiaryEng.cshtml" />
+    <Content Include="Views\diary\Active.cshtml" />
+    <Content Include="Views\diary\All.cshtml" />
+    <Content Include="Views\diary\Trash.cshtml" />
+    <Content Include="Views\web\Diary.cshtml" />
+    <Content Include="Views\web\GetClass.cshtml" />
+    <Content Include="Views\web\GetSections.cshtml" />
+    <Content Include="Views\web\ViewDiaryCntxt.cshtml" />
+    <Content Include="Views\diary\_PublishDiary.cshtml" />
+    <Content Include="Views\result\SelectViewType.cshtml" />
+    <Content Include="Views\result\AllSbjctsTtlMrks.cshtml" />
+    <Content Include="Views\result\_AddSbjctsTtlMrks.cshtml" />
+    <Content Include="Views\result\_EditSbjctsTtlMrks.cshtml" />
+    <Content Include="Views\result\ResultOfClasses.cshtml" />
+    <Content Include="Views\result\ClsStdntsRslt.cshtml" />
+    <Content Include="Views\student\_SubjectResultForm_.cshtml" />
+    <Content Include="Views\admin\Home.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1548</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1094/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

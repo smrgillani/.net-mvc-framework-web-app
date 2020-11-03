@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Web Services";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/contents/js/script_6.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ('@TempData["msg"]' != "") {
+              $("#dialog-msg").dialog('open');
+          }
+      });
+</script>
+
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Web Settings</p></div>
+<div class="p_page_head_left"><h2 class="web_settings">Web Settings</h2></div>
+<div class="p_page_head_right"></div>
+<div class="clear"></div>
+</div>
+
+<!--Create-->
+<div id="dialog-add-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With The Internet Connection , Please Check At Your Side
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+
+<p class="db_msg">Currently this service is down  , Sorry for inconvenience . </p>
+    <br />
+</div>
+
+

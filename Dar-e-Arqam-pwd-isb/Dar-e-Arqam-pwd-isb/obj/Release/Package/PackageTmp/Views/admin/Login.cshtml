@@ -1,0 +1,49 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model Login
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dar-e-Arqam Web Portal</title>
+    <link href="~/contents/css/login.css" rel="stylesheet" />
+</head>
+<body>
+<div class="log_body">
+<div class="log_div_body">
+<p class="log_div_title"> Login</p>
+
+    <p style="color:#F83333; background-color:#F5C7C7; line-height:30px; width:auto; margin:0 auto; text-align:center; font-family:Helvetica; font-size:18px; margin-bottom:20px;">
+        @TempData["Msg"]
+        </p>
+
+@using (Html.BeginForm("login", "admin", FormMethod.Post))
+{
+<div class="log_username">
+<div class="log_username_label">
+<label for="username">Username</label>
+</div>
+<div class="log_username_input">
+@Html.TextBoxFor(m => m.Username)
+</div>
+</div>
+<div class="log_password">
+<div class="log_password_label">
+<label for="password">Password</label>
+</div>
+<div class="log_password_input">
+@Html.PasswordFor(m => m.Password)
+</div>
+</div>
+<div class="log_signin">
+<input type="submit" value="Sign in" name="signin" class="log_signin_input"  />
+<input type="checkbox" value="" class="log_signin_checkbox"/>
+<p class="log_signin_checkbox_text">Stay Connected</p>
+</div>
+<div class="clear"></div>
+<div class="log_account_access">
+<a href="#" >Forget Password ?</a>
+</div>
+}
+</div>
+</body>
+</html>

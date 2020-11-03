@@ -1,0 +1,47 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+
+<p class="form_msgs"> </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+     if (Model.SubjectResult_s == null)
+    {
+        <p class="db_msg"> @ViewBag.StatusMessage </p>       
+    }else{
+        
+      //  for (int i = 0; i < Model.Guests.Count; i++) {
+  //@Html.TextBoxFor(m => m.Guests.ToList()[i].FirstName)
+//}
+
+        for (int i = 0; i < Model.SubjectResult_s.Count; i++)
+        {
+    
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="SubjectResult_Obtn_marks" > @Model.SubjectResult_s.ToList()[i].Subject_name Marks : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.SubjectResult_s.ToList()[i].Obtn_marks, new { Class="obtn_marks" }) </div>
+</div> 
+    
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="SubjectResult_Status" > Result Status :</label></div>
+ <div class="_forms_select_div"> @Html.DropDownListFor(m => m.SubjectResult_s.ToList()[i].Status,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Select Option . .", Value = "-1"},
+                    new SelectListItem { Text = "Pass", Value = "0"},
+                    new SelectListItem { Text = "Fail", Value = "1"}
+                }, new { Class = "status" }
+               )
+</div></div>
+    <div class="clear"></div>
+    @Html.TextBoxFor(m => m.SubjectResult_s.ToList()[i].Subject_id, new { style = "display: none;" })
+    @Html.TextBoxFor(m => m.SubjectResult_s.ToList()[i].Sub_r_id, new { style = "display: none;" })
+    @Html.TextBoxFor(m => m.SubjectResult_s.ToList()[i].Student_id, new { style = "display: none;" })
+}
+}       
+}
+</div>

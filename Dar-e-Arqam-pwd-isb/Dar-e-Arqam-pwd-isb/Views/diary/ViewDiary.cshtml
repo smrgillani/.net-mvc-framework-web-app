@@ -1,0 +1,124 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models;
+@model AllClasses
+@{
+    ViewBag.Title = "Diaries";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<script type="text/javascript" src="~/contents/js/OpenPad.js"></script>
+<script type="text/javascript">initUrduEditor();</script>*@
+<script src="~/contents/js/dic.js"></script>
+<script src="~/contents/js/keyboard.js"></script>
+<script src="~/contents/js/script_17.js"></script>
+<script type="text/javascript" src="~/contents/js/script_19.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+<script type="text/javascript">
+      $(document).ready(function () {
+          if ('@TempData["msg"]' != "") {
+              $("#dialog-msg").dialog('open');
+           }
+      });
+</script>
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Diaries</p></div>
+<div class="p_page_head_left"><h2 class="diaries">Diaries</h2></div>
+<div class="p_page_head_right">
+<div class="p_page_head_right_search">
+@using (Html.BeginForm("Index", "diary", FormMethod.Get))
+{
+<div class="p_page_head_right_search_input"> @Html.TextBoxFor(m => m.Search_key, new { placeholder="Type anything to search the required diary .... " }) </div>
+<div class="p_page_head_right_search_btn"> <input type="submit" name="submit" value="Search" /> </div>
+    
+    <div class="clear"></div>    
+}
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<!--Create-->
+<div id="dialog-add-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With Your Internet Connection , Please Check Your Internet Connetion Settings !
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+
+<div class="p_page_head_bot_links">
+<a href="" id="AddNewDiary" class="add_new_item">Add New Diary</a>
+<a href="/diary/active">All Active Diaries </a>
+<a href="/diary/All">All Diaries</a>
+<a href="/diary/trash">Trash</a>
+<div class="clear"></div>
+</div>
+<h3 class="page_main_headings"> (@Model.Diary.Diary_date) Diary For @Model.GradeSection_.Class_name Section (@Model.GradeSection_.Name)</h3>
+<div class="p_page_head_bot_links">
+<a href="/diary/CreateSubjectDiary/?id=@Model.GradeSection_.Id&did=@Model.Diary.Id&type=eng" id="AddNewDiaryEng" class="add_new_item">Add Subject Diary In English Text</a>
+<a href="/diary/CreateSubjectDiary/?id=@Model.GradeSection_.Id&did=@Model.Diary.Id&type=urd" id="AddNewDiaryUrdu" class="add_new_item">Add Subject Diary In Urdu Text</a>
+<div class="clear"></div>
+</div>
+
+
+    
+    @if (Model.Diary_contxt_s == null)
+    {
+        <p class="db_null_msg"> @ViewBag.StatusMessage </p>
+    }
+    else
+    {
+        
+        @*<div class="diary_body">*@
+        foreach (var driv in Model.Diary_contxt_s)
+        {
+            if(driv.Type == "eng"){
+            <table class="diary_body">
+                <tr>
+                <td class="diary_body_subject"><p>@driv.Subject_name</p></td>
+                <td class="diary_body_contxt"><p>@driv.Contxt </p></td>
+                <td class="diary_body_options" style="width:12.4%;">
+                <div class="diary_body_options">
+                <div class="items_dir_main_div_inner_opt_edit" style="border-right:none;"><a href="/diary/EditSubjectDiary/@driv.Id" class="UpdateExistingSubjectDiary">Edit</a></div>
+                <div class="items_dir_main_div_inner_opt_dlt"><a href="/diary/delsubdiary/@driv.Id">Delete</a></div>
+                <div class="clear"></div>
+                </div></td>
+            </tr>
+                </table>
+        }else{
+                <table class="diary_body">
+                <tr>
+                <td class="diary_body_options" style="width:12.4%;">
+                <div class="diary_body_options">
+                <div class="items_dir_main_div_inner_opt_edit" style="border-right:none;"><a href="/diary/EditSubjectDiary/@driv.Id" class="UpdateExistingSubjectDiary">Edit</a></div>
+                <div class="items_dir_main_div_inner_opt_dlt"><a href="/diary/delsubdiary/@driv.Id">Delete</a></div>
+                <div class="clear"></div>
+                </div></td>
+                <td class="diary_body_contxt"><p class="urdu_">@driv.Contxt </p></td>
+                <td class="diary_body_subject"><p class="urdu">@driv.Subject_name</p></td>
+            </tr>
+                    </table>
+            }
+            
+            @*<div class="diary_body_subject">@driv.Subject_name</div>
+            <div class="diary_body_contxt">@driv.Contxt</div>
+            <div class="diary_body_options">
+            <div class="items_dir_main_div_inner_opt_edit" style="border-right:none;"><a href="" class="UpdateExistingSection">Edit</a></div>
+            <div class="items_dir_main_div_inner_opt_dlt"><a href="/diary/delsection/@driv.Id">Delete</a></div>
+            </div>*@
+        }
+            
+        @*</div>*@
+    }
+</div>

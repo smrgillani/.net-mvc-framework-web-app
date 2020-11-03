@@ -1,0 +1,16 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model Diary
+
+<p class="form_msgs"> Example : 25-06-2011 </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm("edit", "diary", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Name" > Enter The Date : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Diary_date) </div>
+</div>
+}
+</div>

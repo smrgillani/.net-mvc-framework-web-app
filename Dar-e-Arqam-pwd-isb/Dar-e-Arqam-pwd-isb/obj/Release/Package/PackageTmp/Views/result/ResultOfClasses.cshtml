@@ -1,0 +1,73 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+@{
+    ViewBag.Title = "Select A Class Level For This Result";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/contents/js/script_7.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+
+<script type="text/javascript">
+      $(document).ready(function () {
+          if ('@TempData["msg"]' != "") {
+              $("#dialog-msg").dialog('open');
+           }
+      });
+</script>
+
+
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Results</p></div>
+<div class="p_page_head_left"><h2 class="results">Results</h2></div>
+<div class="p_page_head_right">
+<div class="p_page_head_right_search">
+@using (Html.BeginForm("Index", "result", FormMethod.Get))
+{
+<div class="p_page_head_right_search_input"> @Html.TextBoxFor(m => m.Search_key, new { placeholder="Type anything to search the required session year result .... " }) </div>
+<div class="p_page_head_right_search_btn"> <input type="submit" name="submit" value="Search" /> </div>
+<div class="clear"></div>    
+}
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<!--Create-->
+<div id="dialog-add-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With Your Internet Connection , Please Check Your Internet Connetion Settings !
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+
+<div class="p_page_head_bot_links">
+<a href="" id="AddNewResult" class="add_new_item">Add New Result</a>
+<a href="/result/all">All Active Results </a>
+<a href="/result/trash">Trash</a>
+<div class="clear"></div>
+</div>
+<h3 class="page_main_headings">Select A Class Level For (@Model.Sub_Result.name) </h3>
+@if (Model.ClassLevel_s == null)
+{
+    <p class="db_msg"> @ViewBag.StatusMessage </p>
+}else{
+  foreach(var driv in Model.ClassLevel_s){  
+<div class="result_slect_type"><a href="/result/clsstdntsrslt/?id=@driv.Id&rid=@Model.Sub_Result.id">@driv.Name</a></div>
+}
+}<div class="clear"></div>
+<br />
+<div class="clear"></div>
+</div>

@@ -1,0 +1,24 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model Star
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Publish" > Publish On Web : </label></div>
+<div class="_forms_select_div"> @Html.DropDownListFor(m => m.Publish,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Select Option . .", Value = "0"},
+                    new SelectListItem { Text = "Yes", Value = "2"},
+                    new SelectListItem { Text = "No", Value = "1"}
+                }
+               )
+</div>
+</div>    
+}
+</div>

@@ -1,0 +1,52 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model ContactInfo
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Title" > Contact Title : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Title) </div>
+</div>
+
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="Contact_Cell" > Cell Number : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Contact_Cell) </div>
+</div>     
+    
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="Contact_Phone" > Phone Number : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Contact_Phone) </div>
+</div>
+
+<div class="clear"></div>         
+    
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="Contact_Email" > Email : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Contact_Email) </div>
+</div>        
+
+        
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="Contact_Website" > Website : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Contact_Website) </div>
+</div>
+
+<div class="clear"></div>     
+    
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Contact_Locatione" > Google Map Location Code : </label></div>
+<div class="_forms_textarea_div"> @Html.TextAreaFor(m => m.Contact_Location, new { style = "height:75px;" }) </div>
+</div>
+        
+        
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Contact_Address" > Location Address : </label></div>
+<div class="_forms_textarea_div"> @Html.TextAreaFor(m => m.Contact_Address, new { style = "height:75px;" }) </div>
+</div>   
+}
+</div>

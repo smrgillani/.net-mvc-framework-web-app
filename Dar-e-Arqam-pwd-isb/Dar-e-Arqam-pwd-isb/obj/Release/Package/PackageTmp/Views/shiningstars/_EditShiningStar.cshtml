@@ -1,0 +1,40 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model Star
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm("Edit", "shiningstars", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Name" > Name Of The Star : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Name) </div>
+</div>
+    
+<div class="_forms_label_n_input_normal_div">        
+<div class="_forms_label_div"><label for="Star_type" > Choose Star Category : </label></div>
+<div class="_forms_select_div"> @Html.DropDownListFor(m => m.Star_type ,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Select a category . .", Value = "0"},
+                    new SelectListItem { Text = "Star Of The Week", Value = "1"},
+                    new SelectListItem { Text = "Star Of The Month", Value = "2"},
+                    new SelectListItem { Text = "Star Of The Year", Value = "3"}
+                }
+               )
+</div>
+</div>     
+
+<div class="_forms_label_n_input_normal_div">        
+<div class="_forms_label_div"><label for="Achievement" > Achievement : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Achievement) </div>
+</div>
+
+<div class="_forms_label_n_input_normal_div">    
+<div class="_forms_label_div"><label for="Picture" > Picture Of The Star :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Picture, new { type="file" }) </div>
+</div>     
+}
+</div>

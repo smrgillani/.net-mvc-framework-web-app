@@ -1,0 +1,118 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models;
+@model AllClasses 
+@{
+    ViewBag.Title = "View Events";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/contents/js/script_1.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+
+<script type="text/javascript">
+      $(document).ready(function () {
+          if ('@TempData["msg"]' != "") {
+              $("#dialog-msg").dialog('open');
+          }
+          $("#Events_tabs").tabs();
+      });
+</script>
+
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Events </p></div>
+<div class="p_page_head_left"><h2 class="events">Events</h2></div>
+<div class="p_page_head_right">
+<div class="p_page_head_right_search">
+@using (Html.BeginForm("Index", "events", FormMethod.Get))
+{
+<div class="p_page_head_right_search_input"> @Html.TextBoxFor(m => m.Search_key, new { placeholder="Type anything to search the required events .... " }) </div>
+<div class="p_page_head_right_search_btn"> <input type="submit" name="submit" value="Search" /> </div>
+<div class="clear"></div>    
+}
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<!--Create-->
+<div id="dialog-add-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With Your Internet Connection , Please Check Your Internet Connetion Settings !
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+
+<div class="p_page_head_bot_links">
+<a href="" id="AddNewEvent" class="add_new_item">Add New Event</a>
+<a href="/events/active">All Active Events </a>
+<a href="/events/gallery">Events Gallery</a>
+<a href="/events/trash">Trash</a>
+<div class="clear"></div>
+</div>
+
+<div id="Events_tabs">
+  <ul>
+    <li><a href="#tabs-1">Event Content</a></li>
+      <li><a href="#tabs-2">Web Settings</a></li>
+  </ul>
+<div id="tabs-1">
+<h3 class="page_tabs_main_headings">Event Content</h3>
+
+<div class="page_contents_detail_opt">
+<div class="page_contents_detail_opt_dlt"><a href="/events/delevent/@Model.Events.Id">Delete</a></div>
+<div class="page_contents_detail_opt_edit"><a href="/events/edit/@Model.Events.Id" class="UpdateExistingEvent">Edit</a></div>
+<div class="clear"></div>
+</div> 
+    
+<div class="page_contents_info_boxes_for_img">
+<img src="~/Event/@Model.Events.Picture" />
+</div>
+
+<div class="page_contents_info_boxes_for_content">
+<div class="page_contents_info_boxes_nrml">
+<p class="page_contents_detail_h"> <b> Title </b> :</p> 
+<p class="page_contents_detail">@Model.Events.Name </p>
+</div>
+
+<div class="page_contents_info_boxes_nrml">
+<p class="page_contents_detail_h"> <b> Detail</b> :</p> 
+<p class="page_contents_detail">@Model.Events.Detail</p>
+</div>
+</div>
+
+    <div class="clear"></div>
+
+</div>
+<div id="tabs-2">
+<h3 class="page_tabs_main_headings"> Web Settings</h3>
+
+<div class="p_page_head_bot_links">
+<a href="/events/publish/@Model.Events.Id" id="ChangeSettingsEvents" class="add_new_item" style="margin-left:0;">Change Settings</a>
+<div class="clear"></div>
+</div>
+
+<div class="page_contents_info_boxes_nrml">
+<p class="page_contents_detail_h"> <b> Publish On Web </b> :</p>
+@if (@Model.Events.Publish == "2")
+{
+<p class="page_contents_detail">Published On Web !</p>
+}else{
+    <p class="page_contents_detail">Not Published On Web !</p>
+}    
+</div>
+
+</div>
+</div>
+
+</div>

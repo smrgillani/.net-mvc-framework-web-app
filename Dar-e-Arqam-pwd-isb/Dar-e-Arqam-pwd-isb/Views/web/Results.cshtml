@@ -1,0 +1,40 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model WebAllClass
+@{
+    ViewBag.Title = "Results - Dar-e-Arqam , Pwd Islamaabad";
+    Layout = "~/Views/Shared/_WebLayout.cshtml";
+}
+
+<div class="page_title_of_webpages">
+<div class="page_title_of_webpages_inner">
+<div class="title_of_webpages">
+<h2>Results</h2>
+</div>
+</div>
+</div>
+
+
+<div class="page_contents_handleer_outer">
+<div class="page_contents_handleer_inner">
+
+@if (Model == null || @TempData["Message"] != null)
+{
+<div class="body_for_txt_items_">
+<p style="font-family:Helvetica;text-align:center;">@TempData["Message"]</p>
+</div>  
+}
+else
+{
+    
+foreach(var driv in Model.Sub_Result_s){
+
+<div class="body_for_txt_items_">
+<p class="result_list"><a href="/web/viewresult/@driv.id">@driv.name</a></p>
+</div>
+
+}
+}
+
+
+
+<div class="clear"></div></div></div><div class="clear"></div>

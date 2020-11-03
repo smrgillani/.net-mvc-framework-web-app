@@ -1,0 +1,103 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model Employee
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<fieldset>
+<legend>Personal Information :</legend>
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="E_Id" > ID :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.E_Id, new { }) </div>
+</div>
+    
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="E_name" > Name : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.E_name, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">    
+<div class="_forms_label_div"><label for="E_cnic" > CNIC :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.E_cnic, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="E_gen" > Gender : </label></div>
+<div class="_forms_select_div"> @Html.DropDownListFor(m => m.E_gen ,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Select Gender . .", Value = "0"},
+                    new SelectListItem { Text = "Male", Value = "1"},
+                    new SelectListItem { Text = "Female", Value = "2"}
+                }
+               )
+</div>
+</div>
+<div class="clear"></div>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="E_email" > Email : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.E_email, new { }) </div>
+</div>
+        
+<div class="_forms_label_n_input_div">    
+<div class="_forms_label_div"><label for="E_c_num" > Contact Number : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.E_c_num, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">
+<div class="_forms_label_div"><label for="E_a_c_num" > Alternative Contact Number : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.E_a_c_num, new { }) </div>
+</div>
+<div class="clear"></div>
+
+
+</fieldset>
+
+<fieldset>
+<legend>For School :</legend>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="E_desig" > Designation : </label></div>
+<div class="_forms_select_div"> @Html.DropDownListFor(m => m.E_desig ,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Select Designation . .", Value = "0"},
+                    new SelectListItem { Text = "Admin", Value = "1"},
+                    new SelectListItem { Text = "Admin Asistant", Value = "2"},
+                    new SelectListItem { Text = "Office Boy", Value = "3"},
+                    new SelectListItem { Text = "Peon", Value = "4"}
+                }
+               ) </div>
+</div>
+         
+<div class="clear"></div>
+</fieldset>
+
+<fieldset>
+<legend>For Record :</legend>    
+
+<div class="_forms_label_n_input_div">   
+<div class="_forms_label_div"><label for="E_g_name" > Guardian Name : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.E_g_name, new { }) </div>
+</div>
+
+<div class="_forms_label_n_input_div">        
+<div class="_forms_label_div"><label for="E_g_cnic" > Guardian CNIC : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.E_g_cnic, new { }) </div>
+</div>
+
+<div class="_forms_label_n_textarea_div">        
+<div class="_forms_label_div"><label for="E_res_addr" > Employee Residentional Address : </label></div>
+<div class="_forms_textarea_div"> @Html.TextAreaFor(m => m.E_res_addr, new { }) </div>
+</div>
+
+</fieldset>
+<div class="clear"></div>    
+}
+
+    </div>

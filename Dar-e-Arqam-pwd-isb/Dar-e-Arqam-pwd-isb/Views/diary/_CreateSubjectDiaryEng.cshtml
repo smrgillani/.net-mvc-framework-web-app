@@ -1,0 +1,25 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model Diary_Contxt
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Name" > Subject Name : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Subject_name) </div>
+</div>
+
+<div class="_forms_label_n_input_normal_div">        
+<div class="_forms_label_div"><label for="Detail" > Diary Text Of This Subject : </label></div>
+<div class="_forms_textarea_div"> @Html.TextAreaFor(m => m.Contxt, new { style = "height:200px;" }) </div>
+</div>   
+    
+    @Html.TextAreaFor(m => m.Section_id, new {style = "display:none;"})
+    @Html.TextAreaFor(m => m.Diary_id, new {style = "display:none;"})
+    @Html.TextAreaFor(m => m.Type, new {style = "display:none;"})
+}
+</div>

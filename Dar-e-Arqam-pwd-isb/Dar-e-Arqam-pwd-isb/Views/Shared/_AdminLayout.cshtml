@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @*<script src="~/contents/js/jquery-1.10.2.js"></script>*@
+    <script src="~/contents/js/jquery.min.js"></script>
+    <script src="~/contents/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <link href="~/contents/css/structure.css" rel="stylesheet" />
+    <link href="~/contents/css/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
+    <link href="~/contents/css/style.css" rel="stylesheet" />
+    <script type="text/javascript">
+  
+        $(function () {
+            $('#message_layer').click(function () {
+                $('#message_layer_body').slideDown("slow");
+            });
+
+            $('#keyboard_layer_1').click(function () {
+                $('#keyboard_layer_body').slideDown("slow");
+            });
+
+            $('#conversation_layer').click(function () {
+                $('#conversation_layer_body').slideDown("slow");
+            });
+
+            $('#notification_layer').click(function () {
+                $('#notification_layer_body').slideDown("slow");
+            });
+
+            $(document).click(function (e) {
+                var target = e.target;
+                if (!$(target).is('#message_layer')) {
+                    $('#message_layer_body').slideUp("slow");
+                }
+
+                if (!$(target).is('#conversation_layer')) {
+                    $('#conversation_layer_body').slideUp("slow");
+                }
+
+                if (!$(target).is('#notification_layer')) {
+                    $('#notification_layer_body').slideUp("slow");
+                }
+                });
+
+        });
+      
+    </script>
+</head>
+<body>
+<div class="main_body">
+<div class="header">
+
+<div class="header_left"><img src="~/contents/images/logo.png" /></div>
+
+<div class="header_left_0">
+<div class="header_message" id="message_layer"></div>
+<div class="header_conversation" id="conversation_layer"></div>
+<div class="header_notification" id="notification_layer"></div>
+<div class="clear"></div>
+<div id="message_layer_body" class="header_message_layer_body" >
+<p class="header__layer_body_h"> <b> Message </b></p>
+<p class="db_msg" style="font-size:14px;">No New Message</p>     
+</div>
+<div id="conversation_layer_body" class="header_conversation_layer_body" >
+<p class="header__layer_body_h"> <b> Conversations </b></p>
+<p class="db_msg" style="font-size:14px;">No New Conversations</p>      
+</div>
+<div id="notification_layer_body" class="header_notification_layer_body">
+    <p class="header__layer_body_h"> <b> Notifications </b></p>
+    <p class="db_msg" style="font-size:14px;">No New Notifications</p>  
+</div>
+</div>
+
+<div class="header_right">
+
+<div class="header_profile_pic"> <img src="~/contents/images/profile_pic.png" /> </div>
+
+<div class="header_profile_links_n_text"> 
+
+<p class="header_profile_text_name"> Administrator </p>
+
+<p class="header_profile_text_email"> @Session["Username"] </p>
+
+<a href=""> Account Settings </a>
+<a href="/admin/logout"> Sign Out </a>
+
+</div>
+
+<div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+</div>
+
+
+<div class="bottom_body">
+
+<div class="left_menu">
+
+<div class="left_menu_h"><span class="l_m_h_manage"> Management Links </span></div>
+<ul>
+<li><a href="/admin/home" class="l_m_dashboard">Home</a></li>
+<li><a href="/teacher/" class="l_m_teacher" >Teachers</a></li>
+<li><a href="/student/" class="l_m_student" >Students</a></li>
+<li><a href="/parents/" class="l_m_parents" >Parents</a></li>
+<li><a href="/newsandupdates/" class="l_m_news" >News And Updates</a></li>
+<li><a href="/events/" class="l_m_events" >Events</a></li>
+</ul>
+
+<div class="left_menu_h"><span class="l_m_h_academic"> Academic Links </span></div>
+<ul>
+<li><a href="/classlevel/" class="l_m_class" >Classes</a></li>
+<li><a href="/subjects/" class="l_m_subject" >Subjects</a></li>
+<li><a href="/book/" class="l_m_book" >Books</a></li>
+<li><a href="/diary/" class="l_m_diary" >Diary</a></li>
+<li><a href="/syllabus/" class="l_m_syllabus" >Syllabus</a></li>
+<li><a href="/uniform/" class="l_m_uniform">Uniform</a></li>
+<li><a href="/result/" class="l_m_result" >Results</a></li>
+<li><a href="/shiningstars/" class="l_m_stars" >Shining Star</a></li>
+<li><a href="/achievement/" class="l_m_achieve">Achievements</a></li>
+<li><a href="/feestructure/" class="l_m_fee" >Fee Structure</a></li>
+</ul>
+
+<div class="left_menu_h"><span class="l_m_h_extra_link"> Extra Links </span></div>
+<ul>
+<li><a href="/yourstorage/" class="l_m_storage" >Storage</a></li>
+<li><a href="/management/" class="l_m_manage" >Management</a></li>
+<li><a href="/webservices/" class="l_m_service" >Web Services</a></li>
+<li><a href="/websettings/" class="l_m_settings" >Web Settings</a></li>
+<li><a href="/contactinfo/" class="l_m_contact" >Contact Info</a></li>
+</ul>
+</div>
+
+<div class="right_body">@RenderBody() </div>
+
+    <div class="clear"></div>
+
+    <div class="footer_outer">
+        <div class="footer_inner">
+            <div class="footer_left">
+        <p>Copyright © 2014-2016 Dar-e-Arqam , All Rights Reserved</p>
+            </div>
+            <div class="footer_right">
+        <p>Designed And Developed By Syed Kazim Raza Gillani</p>
+            </div>
+            <div class="clear"></div>
+    </div>
+
+
+</div>
+</div>
+</body>
+</html>

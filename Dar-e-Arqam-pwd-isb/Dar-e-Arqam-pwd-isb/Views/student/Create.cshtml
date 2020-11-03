@@ -1,0 +1,325 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+@{
+    ViewBag.Title = "Create Or Add New Student";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/contents/js/script_12.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_left"><h2 class="admission_forms">Add New Student</h2></div>
+<div class="p_page_head_right">
+<div class="p_page_head_right_search">
+@using (Html.BeginForm("Index", "Student", FormMethod.Get))
+{
+<div class="p_page_head_right_search_input"> @Html.TextBoxFor(m => m.Search_key, new { placeholder="Type anything to search the required student .... " }) </div>
+<div class="p_page_head_right_search_btn"> <input type="submit" name="submit" value="Search" /> </div>
+<div class="clear"></div>    
+}
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+
+
+<div class="body_right_bot_area">
+
+    <p class="form_msgs"> All fields are required. </p>
+    
+@using (Html.BeginForm("create", "student", FormMethod.Post, new { enctype = "multipart/form-data", id = "adm_forms" }))
+{
+    @Html.AntiForgeryToken()
+<div class="adm_form_factors_area">    
+
+<div class="adm_form_factors_of_cat">
+<div class="adm_form_factors_of_cat_head"><h3>Applicant Information</h3></div>
+<div class="adm_form_factors_of_cat_inner">
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_Id" > Reg ID :</label></div>            
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_Id)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_name" > Applicant Full Name :</label></div>            
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_name)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_nnlty" > Nationalty :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_nnlty) </div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_c_grade" > Grade :</label></div>
+<div class="_forms_select_div">
+    <select name="Student.Aplicnt_c_grade" id="Student_Aplicnt_c_grade">
+        <option value="0">Select Grade ......</option>
+        @if(Model != null){
+        foreach (var driv in Model.ClassLevel_s)
+        {
+            <option value="@driv.Id">@driv.Name</option>
+        }
+        }else {}
+    </select>
+</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_dob" > Date Of Birth :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_dob)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_pob" > Place Of Birth :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_pob)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_gender" > Gender :</label></div>
+ <div class="_forms_select_div"> @Html.DropDownListFor(m => m.Student.Aplicnt_gender ,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Select Gender . .", Value = "0"},
+                    new SelectListItem { Text = "Male", Value = "1"},
+                    new SelectListItem { Text = "Female", Value = "2"}
+                }
+               )
+</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_c_addr" > Current Home Address :</label></div>  
+<div class="_forms_textarea_div">@Html.TextAreaFor(m => m.Student.Aplicnt_c_addr)</div> </div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_p_addr" > Permanent Home Address :</label></div>  
+<div class="_forms_textarea_div">@Html.TextAreaFor(m => m.Student.Aplicnt_p_addr)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_h_phone" > Home Phone (Landline) :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_h_phone)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_pp_photo" > Recent Photograph :</label></div>  
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Student.Aplicnt_pp_photo, new { type = "file" })</div></div>
+
+</div>
+</div>
+
+<div class="adm_form_factors_of_cat">
+<div class="adm_form_factors_of_cat_head"><h3>To be contacted in emergency</h3></div>    
+<div class="adm_form_factors_of_cat_inner">
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_emrgncy_p_name" > Person Name :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_emrgncy_p_name)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_emrgncy_p_rltn" > Relation :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_emrgncy_p_rltn)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_emrgncy_p_cell" > Cell Number :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_emrgncy_p_cell)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_emrgncy_p_ldln" > Landline :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_emrgncy_p_ldln)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_emrgncy_p_addr" > Address :</label></div>  
+<div class="_forms_textarea_div">@Html.TextAreaFor(m => m.Student.Aplicnt_emrgncy_p_addr)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_emrgncy_p_email" > Email :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_emrgncy_p_email)</div></div>
+
+</div>
+</div>
+
+
+</div>
+
+<div class="adm_form_factors_area">    
+<div class="adm_form_factors_of_cat">
+<div class="adm_form_factors_of_cat_head"><h3>Guardian Details</h3></div>
+<div class="adm_form_factors_of_cat_inner"> 
+           
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_f_name" > Father Name :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_f_name)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_f_ocptn" > Occupation :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_f_ocptn)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_f_title" > Title :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_f_title)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_f_cell" > Cell Number :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_f_cell)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_f_bsns_name" > Name Of Business :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_f_bsns_name)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_f_bsns_addr" > Business Address :</label></div>  
+<div class="_forms_textarea_div">@Html.TextAreaFor(m => m.Student.Aplicnt_f_bsns_addr)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_f_email" > Email :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_f_email)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_f_phone" > Phone (landline) :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_f_phone)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_m_name" > Mother Name :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_m_name)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_m_cell" > Cell Number :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_m_cell)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_m_ldln" > Phone (Landline) :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_m_ldln)</div></div>
+
+</div>
+</div>
+
+<div class="adm_form_factors_of_cat">
+<div class="adm_form_factors_of_cat_head"><h3>Other Childern in Family / Studying at Dar-e-Arqam</h3></div>
+<div class="adm_form_factors_of_cat_inner"> 
+            
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_b_one_name" > Name :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_b_one_name)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_b_one_grade" > Grade :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_b_one_grade)</div></div>
+<div class="clear"></div>
+</div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_b_two_name" > Name :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_b_two_name)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_b_two_grade" > Grade :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_b_two_grade)</div></div>
+
+<div class="clear"></div>
+</div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_b_thr_name" > Name :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_b_thr_name)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_b_thr_grade" > Grade :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_b_thr_grade)</div></div>
+
+<div class="clear"></div>
+</div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_b_fou_name" > Name :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_b_fou_name)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_b_fou_grade" > Grade :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_b_fou_grade)</div></div>
+
+<div class="clear"></div>
+</div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_b_prsnt_schl" > Present School Name :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_b_prsnt_schl)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_b_date_atdnc" > Date of Attendence :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_b_date_atdnc)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_b_lng_ins" > Language of Instruction :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_b_lng_ins)</div></div>
+
+</div>
+</div>
+
+</div>                      
+
+<div class="clear"></div>
+
+<div class="adm_form_factors_of_cat_outer">
+<div class="adm_form_factors_of_cat">
+<div class="adm_form_factors_of_cat_head"><h3>Other Schools attended and date (Optional)</h3></div>  
+<div class="adm_form_factors_of_cat_inner"> 
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_p_schl_name_o" > School Name :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_p_schl_name_o)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label>Duration</label></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_p_schl_strt_date_o" > From :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_p_schl_strt_date_o)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_p_schl_end_date_o" > To :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_p_schl_end_date_o)</div></div>
+<div class="clear"></div>
+</div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_p_schl_name_t" > School Name :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_p_schl_name_t)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label>Duration</label></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_p_schl_strt_date_t" > From :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_p_schl_strt_date_t)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_arng">
+<div class="_forms_label_div"><label for="Aplicnt_p_schl_end_date_t" > To :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_p_schl_end_date_t)</div></div>
+<div class="clear"></div>
+</div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_phycl_emo_cndtn_ackwlg" > Does the applicant have any physical or emotional conditions of which the school should be aware ? <br /> Please explain :</label></div>  
+<div class="_forms_textarea_div">@Html.TextAreaFor(m => m.Student.Aplicnt_phycl_emo_cndtn_ackwlg)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Aplicnt_spcl_intrst_hobby" > Special interests / Hobbies / features of the student :</label></div>  
+<div class="_forms_input_div">@Html.TextBoxFor(m => m.Student.Aplicnt_spcl_intrst_hobby)</div></div>
+
+<div class="adm_form_factors_of_cat_inner_cntnt_spcr">
+<div class="_forms_label_div"><label for="Source_of_acknwlge_abt_da" > Through what source have some to know about Dar-e-Arqam ? :</label></div>  
+<div class="_forms_textarea_div">@Html.TextAreaFor(m => m.Student.Source_of_acknwlge_abt_da)</div></div>
+
+
+</div>
+</div>
+</div>
+<div class="adm_form_factors_of_cat_outer">
+    <div class="adm_form_buttons_area"><a href="#" id="submit_admsn_form" class="adm_form_submit_button">Save</a></div>
+    <div class="adm_form_buttons_area"><input type="reset" name="reset" value="Reset" class="adm_form_reset_button" /></div>
+    <div class="adm_form_buttons_area"><button id="cancel_adm_form" class="adm_form_cancel_button">Cancel</button></div>
+<div class="clear"></div>
+</div>
+}                
+</div>

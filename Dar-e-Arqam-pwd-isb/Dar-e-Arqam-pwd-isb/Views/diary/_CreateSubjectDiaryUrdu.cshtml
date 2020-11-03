@@ -1,0 +1,163 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model Diary_Contxt
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+ <script type="text/javascript">
+  
+     $(function () {
+         $('#keyboard_layer_1').click(function () {
+             $('#keyboard_layer_body').slideDown("slow");
+         });
+
+         $('#keyboard_layer_2').click(function () {
+             $('#keyboard_layer_body_0').slideDown("slow");
+         });
+
+         $(document).click(function (e) {
+             var target = e.target;
+             if ($(target).is('#keyboard_layer_close_1') || $(target).is('#keyboard_layer_2')) {
+                 $('#keyboard_layer_body').slideUp("slow");
+             }
+             if ($(target).is('#keyboard_layer_close_2') || $(target).is('#keyboard_layer_1')) {
+                 $('#keyboard_layer_body_0').slideUp("slow");
+             }
+         });
+     });
+     </script>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Name" > Subject Name : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Subject_name , new { lang="ur", dir="rtl" , onKeyPress="subjectn()"}) </div>
+</div>
+<div class="keyboard_layer_body_open" id="keyboard_layer_1">Use Urdu Keyboard</div>
+<div id="keyboard_layer_body" class="keyboard_interface_layer_body">
+    <div class="keyboard_layer_body_close" id="keyboard_layer_close_1">X</div>    
+    <div class="clear"></div>
+<div>
+    <map name="FPMap0">
+													<area shape="RECT" coords="4,4,26,22" href="Javascript:hurf('zal')">
+													<area shape="RECT" coords="30,5,50,22" href="Javascript:hurf('dhal')">
+													<area shape="RECT" coords="53,4,72,21" href="Javascript:hurf('dal')">
+													<area shape="RECT" coords="76,4,99,23" href="Javascript:hurf('khay')">
+													<area shape="RECT" coords="103,4,123,23" href="Javascript:hurf('hay1')">
+													<area shape="RECT" coords="128,3,147,22" href="Javascript:hurf('chay')">
+													<area shape="RECT" coords="153,3,172,22" href="Javascript:hurf('jim')">
+													<area shape="RECT" coords="178,4,196,21" href="Javascript:hurf('say')">
+													<area shape="RECT" coords="201,4,222,22" href="Javascript:hurf('thay')">
+													<area shape="RECT" coords="225,3,245,22" href="Javascript:hurf('tay')">
+													<area shape="RECT" coords="251,3,272,23" href="Javascript:hurf('pay')">
+													<area shape="RECT" coords="277,2,296,21" href="Javascript:hurf('bay')">
+													<area shape="RECT" coords="305,2,320,23" href="Javascript:hurf('alif')">
+													<area shape="RECT" coords="329,2,349,22" href="Javascript:hurf('alifmada')">
+													<area shape="RECT" coords="4,27,24,45" href="Javascript:hurf('qaf')">
+													<area shape="RECT" coords="28,28,50,44" href="Javascript:hurf('fay')">
+													<area shape="RECT" coords="54,27,71,46" href="Javascript:hurf('gain')">
+													<area shape="RECT" coords="79,27,97,45" href="Javascript:hurf('ain')">
+													<area shape="RECT" coords="104,26,123,45" href="Javascript:hurf('zhoy')">
+													<area shape="RECT" coords="129,27,146,42" href="Javascript:hurf('thoy')">
+													<area shape="RECT" coords="153,26,172,44" href="Javascript:hurf('duad')">
+													<area shape="RECT" coords="180,27,196,45" href="Javascript:hurf('suad')">
+													<area shape="RECT" coords="203,27,221,45" href="Javascript:hurf('sheen')">
+													<area shape="RECT" coords="225,26,245,46" href="Javascript:hurf('seen')">
+													<area shape="RECT" coords="252,26,272,44" href="Javascript:hurf('zhay')">
+													<area shape="RECT" coords="277,28,298,45" href="Javascript:hurf('zay')">
+													<area shape="RECT" coords="302,27,320,46" href="Javascript:hurf('rahy')">
+													<area shape="RECT" coords="328,27,349,46" href="Javascript:hurf('ray')">
+													<area shape="RECT" coords="4,51,23,69" href="Javascript:hurf('bariya')">
+													<area shape="RECT" coords="28,49,47,67" href="Javascript:hurf('ya')">
+													<area shape="RECT" coords="54,51,72,67" href="Javascript:hurf('yamada')">
+													<area shape="RECT" coords="78,51,96,66" href="Javascript:hurf('dochachmihay')">
+													<area shape="RECT" coords="104,49,121,66" href="Javascript:hurf('hay')">
+													<area shape="RECT" coords="128,51,147,68" href="Javascript:hurf('hamza')">
+													<area shape="RECT" coords="152,49,171,68" href="Javascript:hurf('wowmada')">
+													<area shape="RECT" coords="176,49,196,69" href="Javascript:hurf('wow')">
+													<area shape="RECT" coords="203,51,220,68" href="Javascript:hurf('gunah')">
+													<area shape="RECT" coords="227,49,247,68" href="Javascript:hurf('noon')">
+													<area shape="RECT" coords="253,48,272,68" href="Javascript:hurf('mim')">
+													<area shape="RECT" coords="277,49,297,67" href="Javascript:hurf('lam')">
+													<area shape="RECT" coords="301,50,320,67" href="Javascript:hurf('gaf')">
+													<area shape="RECT" coords="326,48,349,69" href="Javascript:hurf('kaf')">
+													<area shape="RECT" coords="301,75,348,92" href="Javascript:hurf('entr')">
+													<area shape="RECT" coords="229,73,298,92" href="Javascript:hurf('space')">
+													<area shape="RECT" coords="155,74,223,91" href="Javascript:hurf('bspace')">
+													<area shape="RECT" coords="127,74,147,94" href="Javascript:hurf('dash')">
+													<area shape="RECT" coords="104,75,125,91" href="Javascript:hurf('Allah')">
+												</map><img height="96" src="~/contents/images/Keyboard_New.jpg" width="350" usemap="#FPMap0" border="0">
+</div>
+</div>
+@*<script type="text/javascript" src="~/contents/js/jquery-1.3.2.min.js"></script>*@
+    
+<div class="_forms_label_n_input_normal_div">        
+<div class="_forms_label_div"><label for="Detail" > Diary Text Of This Subject : </label></div>
+<div class="_forms_textarea_div"> @Html.TextAreaFor(m => m.Contxt, new { style = "height:200px;" , lang="ur", dir="rtl" , onKeyPress="subjectc()"}) </div>
+    @*<script type="text/javascript">makeUrduEditor("Contxt", "18px");</script>*@
+</div>   
+    
+    @Html.TextAreaFor(m => m.Section_id, new {style = "display:none;"})
+    @Html.TextAreaFor(m => m.Diary_id, new {style = "display:none;"})
+    @Html.TextAreaFor(m => m.Type, new {style = "display:none;"})
+
+}
+<div class="keyboard_layer_body_open" id="keyboard_layer_2">Use Urdu Keyboard</div>
+    <div id="keyboard_layer_body_0" class="keyboard_interface_layer_body">
+        <div class="keyboard_layer_body_close" id="keyboard_layer_close_2">X</div>
+        <div class="clear"></div>
+<div>
+    <map name="FPMap1">
+													<area shape="RECT" coords="4,4,26,22" href="Javascript:hurfs('zal')">
+													<area shape="RECT" coords="30,5,50,22" href="Javascript:hurfs('dhal')">
+													<area shape="RECT" coords="53,4,72,21" href="Javascript:hurfs('dal')">
+													<area shape="RECT" coords="76,4,99,23" href="Javascript:hurfs('khay')">
+													<area shape="RECT" coords="103,4,123,23" href="Javascript:hurfs('hay1')">
+													<area shape="RECT" coords="128,3,147,22" href="Javascript:hurfs('chay')">
+													<area shape="RECT" coords="153,3,172,22" href="Javascript:hurfs('jim')">
+													<area shape="RECT" coords="178,4,196,21" href="Javascript:hurfs('say')">
+													<area shape="RECT" coords="201,4,222,22" href="Javascript:hurfs('thay')">
+													<area shape="RECT" coords="225,3,245,22" href="Javascript:hurfs('tay')">
+													<area shape="RECT" coords="251,3,272,23" href="Javascript:hurfs('pay')">
+													<area shape="RECT" coords="277,2,296,21" href="Javascript:hurfs('bay')">
+													<area shape="RECT" coords="305,2,320,23" href="Javascript:hurfs('alif')">
+													<area shape="RECT" coords="329,2,349,22" href="Javascript:hurfs('alifmada')">
+													<area shape="RECT" coords="4,27,24,45" href="Javascript:hurfs('qaf')">
+													<area shape="RECT" coords="28,28,50,44" href="Javascript:hurfs('fay')">
+													<area shape="RECT" coords="54,27,71,46" href="Javascript:hurfs('gain')">
+													<area shape="RECT" coords="79,27,97,45" href="Javascript:hurfs('ain')">
+													<area shape="RECT" coords="104,26,123,45" href="Javascript:hurfs('zhoy')">
+													<area shape="RECT" coords="129,27,146,42" href="Javascript:hurfs('thoy')">
+													<area shape="RECT" coords="153,26,172,44" href="Javascript:hurfs('duad')">
+													<area shape="RECT" coords="180,27,196,45" href="Javascript:hurfs('suad')">
+													<area shape="RECT" coords="203,27,221,45" href="Javascript:hurfs('sheen')">
+													<area shape="RECT" coords="225,26,245,46" href="Javascript:hurfs('seen')">
+													<area shape="RECT" coords="252,26,272,44" href="Javascript:hurfs('zhay')">
+													<area shape="RECT" coords="277,28,298,45" href="Javascript:hurfs('zay')">
+													<area shape="RECT" coords="302,27,320,46" href="Javascript:hurfs('rahy')">
+													<area shape="RECT" coords="328,27,349,46" href="Javascript:hurfs('ray')">
+													<area shape="RECT" coords="4,51,23,69" href="Javascript:hurfs('bariya')">
+													<area shape="RECT" coords="28,49,47,67" href="Javascript:hurfs('ya')">
+													<area shape="RECT" coords="54,51,72,67" href="Javascript:hurfs('yamada')">
+													<area shape="RECT" coords="78,51,96,66" href="Javascript:hurfs('dochachmihay')">
+													<area shape="RECT" coords="104,49,121,66" href="Javascript:hurfs('hay')">
+													<area shape="RECT" coords="128,51,147,68" href="Javascript:hurfs('hamza')">
+													<area shape="RECT" coords="152,49,171,68" href="Javascript:hurfs('wowmada')">
+													<area shape="RECT" coords="176,49,196,69" href="Javascript:hurfs('wow')">
+													<area shape="RECT" coords="203,51,220,68" href="Javascript:hurfs('gunah')">
+													<area shape="RECT" coords="227,49,247,68" href="Javascript:hurfs('noon')">
+													<area shape="RECT" coords="253,48,272,68" href="Javascript:hurfs('mim')">
+													<area shape="RECT" coords="277,49,297,67" href="Javascript:hurfs('lam')">
+													<area shape="RECT" coords="301,50,320,67" href="Javascript:hurfs('gaf')">
+													<area shape="RECT" coords="326,48,349,69" href="Javascript:hurfs('kaf')">
+													<area shape="RECT" coords="301,75,348,92" href="Javascript:hurfs('entr')">
+													<area shape="RECT" coords="229,73,298,92" href="Javascript:hurfs('space')">
+													<area shape="RECT" coords="155,74,223,91" href="Javascript:hurfs('bspace')">
+													<area shape="RECT" coords="127,74,147,94" href="Javascript:hurfs('dash')">
+													<area shape="RECT" coords="104,75,125,91" href="Javascript:hurfs('Allah')">
+												</map><img height="96" src="~/contents/images/Keyboard_New.jpg" width="350" usemap="#FPMap1" border="0">
+</div>
+</div>
+</div>
+

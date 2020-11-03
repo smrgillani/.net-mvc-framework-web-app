@@ -1,0 +1,131 @@
+﻿body{
+width:960px;
+height:auto;
+margin:0 auto;
+background:#1C5FEA;
+}
+.log_body{
+width:960px;
+height:auto;
+margin:0 auto;
+}
+.log_div_body{
+border:1px solid #E5E5E5;
+background-color:#E3EAF8;
+width:335px;
+height:auto;
+margin:0 auto;
+margin-top:80px;
+padding-bottom:20px;
+}
+.log_div_title {
+font-family:Helvetica;
+color:#000000;
+font-size:18px;
+margin-left:19px;
+margin-top:19px;
+}
+.log_username {
+margin-bottom:20px;
+}
+.log_username_label {
+font-family:Helvetica;
+font-size:14px;
+margin-left:19px;
+margin-bottom:8px;
+font-weight:bold;
+color:#333333;
+}
+.log_username_input {
+margin-left:19px;
+margin-right:19px;
+}
+.log_username_input input {
+font-family:verdana;
+font-size:12px;
+height:32px;
+line-height:30px;
+width:100%;
+outline:none;
+border:1px solid #E4E0E0;
+color:#333333;
+text-indent:5px;
+}
+.log_password {
+margin-bottom:20px;
+}
+.log_password_label {
+font-family:Helvetica;
+font-size:14px;
+margin-left:19px;
+margin-bottom:8px;
+font-weight:bold;
+color:#333333;
+}
+.log_password_input {
+margin-left:19px;
+margin-right:19px;
+}
+.log_password_input input {
+font-family:verdana;
+font-size:12px;
+line-height:30px;
+height:32px;
+width:100%;
+outline:none;
+border:1px solid #E4E0E0;
+color:#333333;
+text-indent:5px;
+}
+.log_signin {
+border:none;
+}
+.log_signin_input {
+border:1px solid #1C5FEA;
+background-color:#2B6AEB;
+color:#FFFFFF;
+font-size:14px;
+float:right;
+outline:none;
+margin-right:21px;
+padding:8px;
+font-family:verdana;
+}
+.log_cancel_input {
+border:1px solid #F83333;
+background-color:#F83333;
+color:#FFFFFF;
+font-size:14px;
+float:right;
+outline:none;
+margin-right:21px;
+padding:8px;
+font-family:verdana;
+}
+.log_signin_checkbox {
+margin-left:21px;
+margin-top:12px;
+}
+.log_signin_checkbox_text {
+color:#716D6D;
+width:130px;
+margin-top:-17px;
+font-family:verdana;
+font-size:12px;
+font-weight:bold;
+margin-left:40px;
+}
+.log_account_access {
+color:#2B6AEB;
+font-size:12px;
+margin-top:10px;
+margin-left:19px;
+text-decoration:none;
+font-family:verdana;
+}
+.log_account_access a{
+color:#2B6AEB;
+font-size:12px;
+text-decoration:none;
+font-family:verdana;
+}

@@ -1,0 +1,29 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model ClassLevel
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Name" > Name Of The Class Level : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Name) </div>
+</div>
+    
+<div class="_forms_label_n_input_normal_div">        
+<div class="_forms_label_div"><label for="Range" > Duration of this level : </label></div>
+<div class="_forms_select_div"> @Html.DropDownListFor(m => m.Range ,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Select Duration . .", Value = "0"},
+                    new SelectListItem { Text = "One Year", Value = "1"},
+                    new SelectListItem { Text = "Six Months", Value = "2"}
+                }
+               )
+</div>
+</div>    
+}
+</div>

@@ -1,0 +1,31 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+
+<p class="form_msgs"> </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">        
+<div class="_forms_label_div"><label for="ClassLevel" > Class Levels : </label></div>
+<div class="_forms_select_div">
+    <select name="Subject.ClassLevel" id="Subject_ClassLevel">
+        <option value="0">Select Option ......</option>
+        @if(Model != null){
+        foreach (var driv in Model.ClassLevel_s)
+        {
+            <option value="@driv.Id">@driv.Name</option>
+        }
+        }else{}
+    </select>
+</div>
+</div> 
+    
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Name" > Name Of The Subject : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Subject.Name) </div>
+</div>    
+}
+</div>

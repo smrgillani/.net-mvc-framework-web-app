@@ -1,0 +1,338 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model AllClasses
+@{
+    ViewBag.Title = "Browse Sub Result";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/contents/js/script_7.js"></script>
+<link href="~/contents/css/style.css" rel="stylesheet" />
+
+<script type="text/javascript">
+      $(document).ready(function () {
+          if ('@TempData["msg"]' != "") {
+              $("#dialog-msg").dialog('open');
+           }
+      });
+</script>
+@*@if (Model.Sub_Result_s == null)
+{
+}else{
+foreach (var driv in Model.Sub_Result_s)
+    {
+         <div class='obtained_p___student' style="visibility: hidden; width:0px; height:0px; overflow:hidden;">@if (((Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Obtn_marks) / Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Total_marks) * 100) * driv.Percentage / 100).ToString().Contains("."))
+                                                                               {@(((Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Obtn_marks) / Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Total_marks) * 100) * driv.Percentage / 100).ToString().Substring(0, 4))}
+                                                                               else
+                                                                               {@(((Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Obtn_marks) / Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Total_marks) * 100) * driv.Percentage / 100))}</div>
+    }
+}*@
+<div class="body_right_top_area">
+<div class="p_page_head">
+<div class="p_page_head_top"><p> > Results</p></div>
+<div class="p_page_head_left"><h2 class="results">Results</h2></div>
+<div class="p_page_head_right">
+<div class="p_page_head_right_search">
+@using (Html.BeginForm("Index", "result", FormMethod.Get))
+{
+<div class="p_page_head_right_search_input"> @Html.TextBoxFor(m => m.Search_key, new { placeholder = "Type anything to search the required session year result .... " }) </div>
+<div class="p_page_head_right_search_btn"> <input type="submit" name="submit" value="Search" /> </div>
+<div class="clear"></div>    
+}
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<!--Create-->
+<div id="dialog-add-form"></div>
+
+<!--Success Message-->
+<div id="dialog-msg" style="display: none">
+    <p class="db_msg">
+        @TempData["msg"]!
+    </p>
+</div>
+
+<!--Error-->
+ <div id="dialog-error" style="display: none">
+    <p class="db_msg">
+        Something Wrong With Your Internet Connection , Please Check Your Internet Connetion Settings !
+    </p>
+</div>
+</div>
+
+<div class="body_right_bot_area">
+
+<div class="p_page_head_bot_links">
+<a href="" id="AddNewResult" class="add_new_item">Add New Result</a>
+<a href="/result/all">All Active Results </a>
+<a href="/result/trash">Trash</a>
+<div class="clear"></div>
+</div>
+<h3 class="page_main_headings">@Model.Sub_Result.name</h3>
+
+       <div style="width:90%; margin:0 auto;">
+
+@using (Html.BeginForm())
+{
+    
+    <div class="result_search_field_label"><label for="zid" > Enter Registration ID :</label></div>
+    <div class="result_search_field">@Html.TextBoxFor(m => m.zid) </div>
+
+    <div class="result_search_button_"><input type="submit" value="Search"  /></div>
+    <div class="clear"></div>
+}
+        </div>
+
+@if (Model.Student == null || TempData["Message"] != null)
+{
+<p style="font-family:helvetica; text-align:center; color:red; font-weight:bold;"> @TempData["Message"] </p>
+
+}
+else
+{
+   <div class="body_for_txt_items_">
+        <p class="result_p_content_"><b> Student Name : </b> @Model.Student.Aplicnt_name </p>
+        <p class="result_p_content_"><b> Father Name : </b> @Model.Student.Aplicnt_f_name </p>
+        <p class="result_p_content_"> <b> Grade : </b> @Model.Student.ClassName </p>
+        <p class="result_p_content_"><b> Registration Number : @Model.Student.Aplicnt_Id </b></p>
+    <div style="width:100%;">
+    <div class="result_s_contents_divs_h_" style="margin-left:2px;"><b>Subjects</b></div>
+    <div class="result_s_contents_divs_h_"><b>Obtain Marks</b></div>
+    <div class="result_s_contents_divs_h_"><b>Total Marks</b></div>
+    <div class="result_s_contents_divs_h_" style="border-right:none; width:24.8%;"><b>Result Status</b></div>
+    <div class="clear"></div>
+
+        @foreach (var driv in Model.SubjectResult_s)
+        {
+
+            <div class="result_s_contents_divs_h_" style="margin-left:2px;"><p>@driv.Subject_name</p></div>
+    <div class="result_s_contents_divs_h_"><p>@driv.Obtn_marks</p></div>
+    <div class="result_s_contents_divs_h_"><p>@driv.Total_marks</p></div>
+    <div class="result_s_contents_divs_h_" style="border-right:none; width:24.8%;">
+
+        @if (driv.Status == 0)
+        {
+            <p class="result_s_pass_status__">Pass</p>
+        }
+        else
+        {
+           <p class="result_s_fail_status__">Fail</p>
+        }
+
+    </div>
+    <div class="clear"></div>          
+        }
+
+        <div class="result_s_contents_divs_h_" style="margin-left:2px;"><b>Total Subjects : @Model.SubjectResult_s.Count()</b></div>
+    <div class="result_s_contents_divs_h_"><b>Obtain Marks : @Model.SubjectResult_s.Sum(a => a.Obtn_marks) </b></div>
+    <div class="result_s_contents_divs_h_"><b>Total Marks : @Model.SubjectResult_s.Sum(a => a.Total_marks)</b></div>
+    <div class="result_s_contents_divs_h_" style="border-right:none; width:24.8%;">
+         
+        @if ((Model.SubjectResult_s.Sum(a => a.Obtn_marks) / Model.SubjectResult_s.Sum(a => a.Total_marks) * 100) > 45 && Model.SubjectResult_s.Sum(a => a.Status) < 2)
+        {
+            <b>Full Result Status : <span class="result_s_pass_status__">Pass</span></b>
+        }
+        else
+        {
+            <b>Full Result Status : <span class="result_s_fail_status__">Fail</span></b>
+        }
+
+    </div>
+    <div class="clear"></div>
+        @*
+        @if ((Model.SubjectResult_s.Sum(a => a.Obtn_marks) / Model.SubjectResult_s.Sum(a => a.Total_marks) * 100).ToString().Contains("."))
+        {
+           <p class="results_filanl_remarks_"> Overall Percentage @((Model.SubjectResult_s.Sum(a => a.Obtn_marks) / Model.SubjectResult_s.Sum(a => a.Total_marks) * 100).ToString().Substring(0, 4))% </p>
+                                                                                                                             
+        }
+        else
+        {
+            <p class="results_filanl_remarks_"> Overall Percentage @((Model.SubjectResult_s.Sum(a => a.Obtn_marks) / Model.SubjectResult_s.Sum(a => a.Total_marks) * 100))% </p>
+        }
+
+       @* @if (Model.Result_Position == null || TempData["Message"] != null)
+        {
+        <p style="font-family:helvetica; text-align:center; color:red; font-weight:bold;"> @TempData["Message"] </p>
+        }
+        else
+        {
+            <p class="results_filanl_remarks_"> This student have taken @Model.Result_Position.Obtn_Pstn position in class @Model.Student.ClassName @Model.Result_Position.Class_Section </p>
+        }*@
+
+        @*if ((Model.SubjectResult_s.Sum(a => a.Obtn_marks) / Model.SubjectResult_s.Sum(a => a.Total_marks) * 100) > 45 && Model.SubjectResult_s.Sum(a => a.Status) < 2)
+        {
+            <p class="results_filanl_remarks_"><span class="result_s_pass_status__"> Congratulations ! </span> He/She Has Passed The Exam Of @Model.Sub_Result.name</p>
+        }
+        else
+        {
+            <p class="results_filanl_remarks_"><span class="result_s_fail_status__"> </span> Better Luck Next Time </p>
+        }
+        *@
+        <br />
+
+        </div>
+</div>
+}
+    <div class="clear"></div>
+</div>
+
+
+@*if(Model.Sub_Result_s == null)
+{
+    <p class="db_msg"> @ViewBag.StatusMessage </p>
+}
+else
+{
+<div class="body_for_txt_items_" style="border-bottom:none; margin-bottom:0;"><h1 class="body_for_txt_items__h">OverAll Result Analysis</h1></div>        
+<div class="body_for_txt_items_">
+
+<div class="result_s_contents_divs_h_" style="margin-left:2px;"><b>Particular</b></div>
+<div class="result_s_contents_divs_h_" ><b>Total Weightage</b></div>
+<div class="result_s_contents_divs_h_" ><b>Obtained Weightage</b></div>
+<div class="result_s_contents_divs_h_" style="border-right:none;"><b>Grade</b></div>
+<div class="clear"></div>    
+     
+
+@foreach (var driv in Model.Sub_Result_s)
+{
+    <div class="result_s_contents_divs_h_" style="margin-left:2px;"><p>@driv.name</p></div>
+    
+    <div class="result_s_contents_divs_h_"><p>@driv.Percentage %</p></div>
+    
+    <div class="result_s_contents_divs_h_">@if (((Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Obtn_marks) / Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Total_marks) * 100) * driv.Percentage / 100).ToString().Contains("."))
+                                                {
+                                                    if (((Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Obtn_marks) / Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Total_marks) * 100) * driv.Percentage / 100).ToString().Contains("NaN"))
+                                                    {
+                                                        <p>0</p>
+                                                    }else{
+                                                 <p> @(((Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Obtn_marks) / Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Total_marks) * 100) * driv.Percentage / 100).ToString().Substring(0, 4)) </p> }}
+                                                else
+                                                {
+                                                  if (((Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Obtn_marks) / Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Total_marks) * 100) * driv.Percentage / 100).ToString().Contains("NaN"))
+                                                    {
+                                                        <p>0</p>
+                                                    }else{
+                                                  
+                                                <p>  @(((Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Obtn_marks) / Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Total_marks) * 100) * driv.Percentage / 100)) </p>}}</div>
+    
+    <div class="result_s_contents_divs_h_" style="border-right:none;">
+
+    @{
+                                                double grade = Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Obtn_marks) / Model.SubjectResult_s_.Where(b => b.Sub_r_id.Equals(driv.id)).Sum(a => a.Total_marks) * 100;
+                                                if (grade > 90)
+                                                {
+        <p>A+</p>
+                                                }
+                                                else
+                                                    if (grade > 80)
+                                                    {
+            <p>A</p>
+                                                    }
+                                                    else
+                                                        if (grade > 70)
+                                                        {
+                <p>B</p>
+                                                        }
+                                                        else
+                                                            if (grade > 60)
+                                                            {
+                    <p>C</p>
+                                                            }
+                                                            else
+                                                                if (grade > 50)
+                                                                {
+                        <p>D</p>
+                                                                }
+                                                                else
+                                                                    if (grade > 45)
+                                                                    {
+                            <p>E</p>
+                                                                    }
+                                                                    else
+                                                                    {
+                            <p>F</p>
+                                                                    }
+
+       }
+    </div>
+    
+    
+    
+    <div class="clear"></div>
+}
+    <div class="result_s_contents_divs_h_" style="text-align:center;margin-left:2px;"><B>Total</B></div>
+    <div class="result_s_contents_divs_h_" style="text-align:center;"><b>@Model.Sub_Result_s.Sum(a => a.Percentage) %</b></div>
+    <div class="result_s_contents_divs_h_" style="text-align:center;">
+        
+      
+        <div class="inner_abc_abc"></div>
+    </div>
+    <div class="result_s_contents_divs_h_" style="text-align:center; border-right:none;" id='student_allover_grade'></div>
+    
+    <div class="clear"></div>
+
+    <div class='Overall_final_percentage'></div>
+
+    <div class='final_status_of_result'></div>
+
+</div>
+}*@
+<script type="text/javascript">
+    //var sum = 0.0;
+    //$('#obtained_p___student').each(function () {
+    //    sum += parseFloat($(this).text());
+    //});
+
+    var sum = 0;
+    var grade = "";
+    var msg = "";
+    var status = "";
+
+    $('.obtained_p___student').each(function () {
+        var val = $.trim($(this).text());
+        if (val) {
+            val = parseFloat(val.replace(/^\$/, ""));
+
+            sum += !isNaN(val) ? val : 0;
+        }
+    });
+    if (sum > 90) {
+        grade = "A+";
+        msg = '<p class="results_filanl_remarks_"><span class="result_s_pass_status__"> Congratulations ! </span></p>';
+        status = "Pass";
+    } else
+        if (sum > 80) {
+            grade = "A";
+            status = "Pass";
+            msg = '<p class="results_filanl_remarks_"><span class="result_s_pass_status__"> Congratulations ! </span></p>';
+        } else
+            if (sum > 70) {
+                grade = "B";
+                status = "Pass";
+                msg = '<p class="results_filanl_remarks_"><span class="result_s_pass_status__"> Congratulations ! </span></p>';
+            } else
+                if (sum > 60) {
+                    grade = "C";
+                    status = "Pass";
+                    msg = '<p class="results_filanl_remarks_"><span class="result_s_pass_status__"> Congratulations ! </span></p>';
+                } else
+                    if (sum > 50) {
+                        grade = "D";
+                        status = "Pass";
+                        msg = '<p class="results_filanl_remarks_"><span class="result_s_pass_status__"> Congratulations ! </span></p>';
+                    } else
+                        if (sum > 45) {
+                            grade = "E";
+                            status = "Pass";
+                            msg = '<p class="results_filanl_remarks_"><span class="result_s_pass_status__"> Congratulations ! </span></p>';
+                        } else {
+                            grade = "F";
+                            status = "Fail";
+                            msg = '<p class="results_filanl_remarks_">Good Luck</p>';
+                        }
+
+    $('.inner_abc_abc').append("<b>" + sum.toFixed(2) + "%</b>");
+    $('#student_allover_grade').append("<b>" + grade + "</b>");
+    $('.Overall_final_percentage').append("<p class='results_filanl_remarks_'>Overall Percentage " + sum.toFixed(2) + " % (" + status + ") </p>");
+    $('.final_status_of_result').append(msg + "<br/>");
+</script>

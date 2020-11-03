@@ -1,0 +1,34 @@
+﻿@using Dar_e_Arqam_pwd_isb.Models
+@model Book
+
+<p class="form_msgs"> All fields are required. </p>
+
+<div class="req_form_area">
+
+@using (Html.BeginForm("edit", "book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+<div class="_forms_label_n_input_normal_div">
+<div class="_forms_label_div"><label for="Name" > Name Of The Book : </label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Name) </div>
+</div>
+
+<div class="_forms_label_n_input_normal_div">        
+<div class="_forms_label_div"><label for="Class_subject_id" > Select Subject : </label></div>
+<div class="_forms_select_div"> @Html.DropDownListFor(m => m.Class_subject_id ,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Select Class Level . .", Value = "0"},
+                    new SelectListItem { Text = "One", Value = "1"},
+                    new SelectListItem { Text = "Two", Value = "2"}
+                }
+               )
+</div>
+</div>      
+    
+<div class="_forms_label_n_input_normal_div">    
+<div class="_forms_label_div"><label for="Picture" > Cover Of The Book :</label></div>
+<div class="_forms_input_div"> @Html.TextBoxFor(m => m.Picture, new { type="file" }) </div>
+</div>     
+}
+</div>
